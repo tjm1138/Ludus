@@ -14,7 +14,13 @@ namespace Ludus.Controllers
 
             return View();
         }
+        public ActionResult Documents()
+        {
+            ViewBag.Message = "Your documents";
 
+            return View();
+
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";
