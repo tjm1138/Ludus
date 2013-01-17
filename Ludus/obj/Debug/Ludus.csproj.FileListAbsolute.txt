@@ -96,3 +96,5 @@ D:\git\Ludus\Ludus\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 D:\git\Ludus\Ludus\obj\Debug\Ludus.csprojResolveAssemblyReference.cache
 D:\git\Ludus\Ludus\obj\Debug\Ludus.dll
 D:\git\Ludus\Ludus\obj\Debug\Ludus.pdb
+D:\git\Ludus\Ludus\bin\Models.dll
+D:\git\Ludus\Ludus\bin\Models.pdb

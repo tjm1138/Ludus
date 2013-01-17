@@ -100,3 +100,5 @@ D:\git\Ludus\Ludus.Tests\bin\Debug\DotNetOpenAuth.OpenId.xml
 D:\git\Ludus\Ludus.Tests\obj\Debug\Ludus.Tests.csprojResolveAssemblyReference.cache
 D:\git\Ludus\Ludus.Tests\obj\Debug\Ludus.Tests.dll
 D:\git\Ludus\Ludus.Tests\obj\Debug\Ludus.Tests.pdb
+D:\git\Ludus\Ludus.Tests\bin\Debug\Models.dll
+D:\git\Ludus\Ludus.Tests\bin\Debug\Models.pdb
