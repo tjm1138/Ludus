@@ -36,6 +36,27 @@ namespace Ludus.Models
         public string ExternalLoginData { get; set; }
     }
 
+    public class MyUserInformationModel
+    {
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+    }        
+    public class RegisterForInstitutionModel
+    {
+        [Required]
+        [Display(Name = "Institution")]
+        public int InstitutionId { get; set; }
+
+        [Required]
+        [Display(Name = "InstitutionUserId")]
+        public int InstitutionUserId { get; set; }
+    }
+
     public class LocalPasswordModel
     {
         [Required]
