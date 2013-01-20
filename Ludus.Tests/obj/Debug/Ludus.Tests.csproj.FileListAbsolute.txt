@@ -102,3 +102,5 @@ D:\git\Ludus\Ludus.Tests\obj\Debug\Ludus.Tests.dll
 D:\git\Ludus\Ludus.Tests\obj\Debug\Ludus.Tests.pdb
 D:\git\Ludus\Ludus.Tests\bin\Debug\Models.dll
 D:\git\Ludus\Ludus.Tests\bin\Debug\Models.pdb
+D:\git\Ludus\Ludus.Tests\bin\Debug\WebActivator.dll
+D:\git\Ludus\Ludus.Tests\bin\Debug\Microsoft.Web.Mvc.dll

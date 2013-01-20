@@ -5,14 +5,14 @@
 }
 
 body {
-    background-color: #fff;
+/*    background-color: #fff;
     border-top: solid 10px #000;
     color: #333;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
-}
+*/}
 
 a {
     color: #333;
@@ -421,7 +421,7 @@ label {
 }
 
 label.checkbox {
-    display: inline;
+/*    display: inline;*/
 }
 
 input, textarea {
