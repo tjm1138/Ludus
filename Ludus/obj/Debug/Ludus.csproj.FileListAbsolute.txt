@@ -98,3 +98,4 @@ D:\git\Ludus\Ludus\obj\Debug\Ludus.dll
 D:\git\Ludus\Ludus\obj\Debug\Ludus.pdb
 D:\git\Ludus\Ludus\bin\Models.dll
 D:\git\Ludus\Ludus\bin\Models.pdb
+D:\git\Ludus\Ludus\bin\Google.Apis.Calendar.v3.dll
