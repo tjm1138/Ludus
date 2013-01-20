@@ -1,6 +1,6 @@
 ﻿html {
     background-color: #e2e2e2;
-    margin: 0;
+ /*   margin: 0;*/
     padding: 0;
 }
 
@@ -144,22 +144,23 @@ footer {
 
 
 /* login
-----------------------------------------------------------*/
+---------------------------------------------------------
+-*/
 #login {
     display: block;
     font-size: .85em;
-    margin: 0 0 10px;
+/*    margin: 0 0 10px;*/
     text-align: right;
 }
 
     #login a {
-        background-color: #d3dce0;
+/*        background-color: #d3dce0;
         margin-left: 10px;
         margin-right: 3px;
         padding: 2px 3px;
-        text-decoration: none;
+*/        text-decoration: none;
     }
-
+    
     #login a.username {
         background: none;
         margin: 0;
@@ -175,7 +176,6 @@ footer {
         display: inline;
         list-style: none;
     }
-
 
 /* menu
 ----------------------------------------------------------*/
@@ -754,3 +754,33 @@ tr.pager td {
             margin: 0;
         }
 }
+.show-grid {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.show-grid [class*="span"] {
+  background-color: #eee;
+  text-align: center;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  min-height: 40px;
+  line-height: 40px;
+}
+.show-grid:hover [class*="span"] {
+  background: #ddd;
+}
+.show-grid .show-grid {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.show-grid .show-grid [class*="span"] {
+  margin-top: 5px;
+}
+.show-grid [class*="span"] [class*="span"] {
+  background-color: #ccc;
+}
+.show-grid [class*="span"] [class*="span"] [class*="span"] {
+  background-color: #999;
+}
+
