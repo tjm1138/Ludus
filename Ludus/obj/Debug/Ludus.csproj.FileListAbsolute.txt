@@ -96,7 +96,9 @@ D:\git\Ludus\Ludus\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 D:\git\Ludus\Ludus\obj\Debug\Ludus.csprojResolveAssemblyReference.cache
 D:\git\Ludus\Ludus\obj\Debug\Ludus.dll
 D:\git\Ludus\Ludus\obj\Debug\Ludus.pdb
-D:\git\Ludus\Ludus\bin\Models.dll
-D:\git\Ludus\Ludus\bin\Models.pdb
-D:\git\Ludus\Ludus\bin\WebActivator.dll
 D:\git\Ludus\Ludus\bin\Microsoft.Web.Mvc.dll
+D:\git\Ludus\Ludus\bin\Org.Mentalis.Security.Cryptography.dll
+D:\git\Ludus\Ludus\bin\Mono.Math.dll
+D:\git\Ludus\Ludus\bin\Org.Mentalis.Security.Cryptography.xml
+D:\git\Ludus\Ludus\bin\Mono.Math.xml
+D:\git\Ludus\Ludus\bin\WebActivatorEx.dll

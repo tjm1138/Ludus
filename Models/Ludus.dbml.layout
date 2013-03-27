@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.875, 10.125" name="Ludus">
+  <DataContextMoniker Name="/LudusDataContext" />
+  <nestedChildShapes>
+    <classShape Id="237be1f9-1ff9-4b80-9f95-432f92cab963" absoluteBounds="0.5, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LudusDataContext/UserProfile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="968cdfa6-85b8-426d-b4f8-66710cab7bb3" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ac4ed45c-030e-44a8-bc8d-65e6897f66e9" absoluteBounds="4, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LudusDataContext/Student" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0fa90092-cd92-4b12-815e-245a31a5a529" absoluteBounds="4.015, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.19314697265625); (4 : 1.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LudusDataContext/UserProfile/UserProfile_Student" />
+      <nodes>
+        <classShapeMoniker Id="237be1f9-1ff9-4b80-9f95-432f92cab963" />
+        <classShapeMoniker Id="ac4ed45c-030e-44a8-bc8d-65e6897f66e9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d41cb413-f244-424f-a6f9-fa1cdc6de62c" absoluteBounds="4, 2.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LudusDataContext/Faculty" />
+      <nestedChildShapes>
+        <elementListCompartment Id="adedcaa7-7a3f-4d7f-b04e-a6aee6b6eefb" absoluteBounds="4.015, 2.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.39024983723958); (4 : 2.39024983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LudusDataContext/UserProfile/UserProfile_Faculty" />
+      <nodes>
+        <classShapeMoniker Id="237be1f9-1ff9-4b80-9f95-432f92cab963" />
+        <classShapeMoniker Id="d41cb413-f244-424f-a6f9-fa1cdc6de62c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5baeaf16-71c1-44c0-ac06-9d41863ff551" absoluteBounds="8.75, 7.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LudusDataContext/Assignment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3c9da413-0c4f-4632-b0e6-03f7feefaebc" absoluteBounds="8.765, 7.7100000000000009, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4505ecab-9d71-4fb9-abbd-c140d9bfda61" absoluteBounds="2.875, 7.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LudusDataContext/Course" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a51229bf-39fe-4052-bc88-2b0d9f851501" absoluteBounds="2.89, 8.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3a4250fc-5dec-447b-9a29-3553318e7cf7" absoluteBounds="9.625, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LudusDataContext/Enrollment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9082e1ab-4ff0-4437-9414-ed3108b6ea54" absoluteBounds="9.64, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5b8edc81-b39a-41e5-85d9-b4c35668fd33" absoluteBounds="5.875, 7.875, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/LudusDataContext/Section" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae27feec-0c8e-466c-ab7c-a49133c1a9f9" absoluteBounds="5.89, 8.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="838d6fca-4c66-4b6d-8110-5c9a0969a98d" absoluteBounds="4.875, 4.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LudusDataContext/Session" />
+      <nestedChildShapes>
+        <elementListCompartment Id="39b97ffd-2e85-4605-96bf-afa5adf693a6" absoluteBounds="4.8900000000000006, 5.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="60c43960-874f-4a03-892d-6cf16a9dba60" absoluteBounds="8.375, 4.125, 2, 2.1554996744791661">
+      <DataClassMoniker Name="/LudusDataContext/Submission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf0d66f7-ac0a-470e-b398-5e8be8655570" absoluteBounds="8.39, 4.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6 : 1.19314697265625); (9.625 : 1.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LudusDataContext/Student/Student_Enrollment" />
+      <nodes>
+        <classShapeMoniker Id="ac4ed45c-030e-44a8-bc8d-65e6897f66e9" />
+        <classShapeMoniker Id="3a4250fc-5dec-447b-9a29-3553318e7cf7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.875 : 8.64024983723958); (8.75 : 8.64024983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LudusDataContext/Section/Section_Assignment" />
+      <nodes>
+        <classShapeMoniker Id="5b8edc81-b39a-41e5-85d9-b4c35668fd33" />
+        <classShapeMoniker Id="5baeaf16-71c1-44c0-ac06-9d41863ff551" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.40625 : 7.875); (7.40625 : 2.00564697265625); (9.625 : 2.00564697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LudusDataContext/Section/Section_Enrollment" />
+      <nodes>
+        <classShapeMoniker Id="5b8edc81-b39a-41e5-85d9-b4c35668fd33" />
+        <classShapeMoniker Id="3a4250fc-5dec-447b-9a29-3553318e7cf7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.875 : 8.60179768880208); (5.875 : 8.60179768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LudusDataContext/Course/Course_Section" />
+      <nodes>
+        <classShapeMoniker Id="4505ecab-9d71-4fb9-abbd-c140d9bfda61" />
+        <classShapeMoniker Id="5b8edc81-b39a-41e5-85d9-b4c35668fd33" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.4687525 : 4.75); (6.4687525 : 1.57097295898438); (6 : 1.57097295898438)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LudusDataContext/Session/Session_Student" />
+      <nodes>
+        <classShapeMoniker Id="838d6fca-4c66-4b6d-8110-5c9a0969a98d" />
+        <classShapeMoniker Id="ac4ed45c-030e-44a8-bc8d-65e6897f66e9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.4375 : 4.75); (5.4375 : 3.5112939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LudusDataContext/Session/Session_Faculty" />
+      <nodes>
+        <classShapeMoniker Id="838d6fca-4c66-4b6d-8110-5c9a0969a98d" />
+        <classShapeMoniker Id="d41cb413-f244-424f-a6f9-fa1cdc6de62c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.375 : 6.32859537760417); (6.375 : 7.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LudusDataContext/Session/Session_Section" />
+      <nodes>
+        <classShapeMoniker Id="838d6fca-4c66-4b6d-8110-5c9a0969a98d" />
+        <classShapeMoniker Id="5b8edc81-b39a-41e5-85d9-b4c35668fd33" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.43899223932065 : 7.25); (9.43899223932065 : 6.28049967447917)]" fixedFrom="Caller" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LudusDataContext/Assignment/Assignment_Submission" />
+      <nodes>
+        <classShapeMoniker Id="5baeaf16-71c1-44c0-ac06-9d41863ff551" />
+        <classShapeMoniker Id="60c43960-874f-4a03-892d-6cf16a9dba60" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10 : 2.27089680989583); (10 : 4.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LudusDataContext/Enrollment/Enrollment_Submission" />
+      <nodes>
+        <classShapeMoniker Id="3a4250fc-5dec-447b-9a29-3553318e7cf7" />
+        <classShapeMoniker Id="60c43960-874f-4a03-892d-6cf16a9dba60" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f865ed58-f2dc-4968-aa12-e0847adcdb03" absoluteBounds="0.75, 3.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/LudusDataContext/PersonalItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c45b2e66-c82b-4a7c-9cbe-c84a85409d3f" absoluteBounds="0.76500000000000012, 3.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.625 : 2.65549967447917); (1.625 : 3.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LudusDataContext/UserProfile/UserProfile_PersonalItem" />
+      <nodes>
+        <classShapeMoniker Id="237be1f9-1ff9-4b80-9f95-432f92cab963" />
+        <classShapeMoniker Id="f865ed58-f2dc-4968-aa12-e0847adcdb03" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

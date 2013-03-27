@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Data.Linq;
+using System.Linq;
 using System.Globalization;
 using System.Web.Security;
 
@@ -30,6 +32,20 @@ namespace Ludus.Models
         public string DisplayName { get; set; }
         public string InstitutionUserId { get; set; }
         public string EmailAddress { get; set; }
+
+        public void SaveProfile ()
+        {
+            using (Ludus.LinqModels.LudusDataContext dc = new Ludus.LinqModels.LudusDataContext()) 
+            {
+                var profiles = dc.GetTable<Ludus.LinqModels.UserProfile>();
+                var profile = (from s in profiles
+                              where s.UserId == UserId
+                              select s).First<Ludus.LinqModels.UserProfile>();
+                profile.DisplayName = DisplayName;  
+                dc.SubmitChanges(ConflictMode.ContinueOnConflict);
+            }
+        }
+
     }
 
     public class RegisterExternalLoginModel
@@ -84,7 +100,7 @@ namespace Ludus.Models
     public class LoginModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "FSU ID")]
         public string UserName { get; set; }
 
         [Required]
@@ -99,7 +115,7 @@ namespace Ludus.Models
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "FSU ID")]
         public string UserName { get; set; }
 
         [Required]
@@ -112,6 +128,23 @@ namespace Ludus.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Display name")]
+        public string DisplayName { get; set; }
+
+        [Required]
+        [Display(Name = "my.fsu Email Address")]
+        public string EmailAddress { get; set; }
+
     }
 
     public class ExternalLogin

@@ -1,6 +1,6 @@
 using System.Web.Optimization;
 
-[assembly: WebActivator.PostApplicationStartMethod(typeof(Ludus.App_Start.BootstrapBundleConfig), "RegisterBundles")]
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(Ludus.App_Start.BootstrapBundleConfig), "RegisterBundles")]
 
 namespace Ludus.App_Start
 {

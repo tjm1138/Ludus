@@ -25,11 +25,11 @@ namespace Ludus.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                Database.SetInitializer<DataContext>(null);
 
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new DataContext())
                     {
                         if (!context.Database.Exists())
                         {

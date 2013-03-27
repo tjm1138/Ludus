@@ -5,7 +5,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ludus", "Ludus\Ludus.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ludus.Tests", "Ludus.Tests\Ludus.Tests.csproj", "{9312A765-E18E-49F7-BB50-9295658F12F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{8637618A-BA50-49CB-A4B3-18C188B15397}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E9898D24-98FE-4D61-A63D-F08D07EA68AB}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +26,6 @@ Global
 		{9312A765-E18E-49F7-BB50-9295658F12F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9312A765-E18E-49F7-BB50-9295658F12F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9312A765-E18E-49F7-BB50-9295658F12F3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8637618A-BA50-49CB-A4B3-18C188B15397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8637618A-BA50-49CB-A4B3-18C188B15397}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8637618A-BA50-49CB-A4B3-18C188B15397}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8637618A-BA50-49CB-A4B3-18C188B15397}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

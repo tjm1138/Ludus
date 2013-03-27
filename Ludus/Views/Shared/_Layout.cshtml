@@ -47,7 +47,7 @@
                     <li class="dropdown">
                       <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Student <b class="caret"></b></a>
                       <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                        <li><a tabindex="-1" href="http://google.com">Action</a></li>
+                        <li>@Html.ActionLink("Personal Items", "Index", "PersonalItem", routeValues: null, htmlAttributes: new { id = "personalItemsLink" })</li>
                         <li><a tabindex="-1" href="#anotherAction">Another action</a></li>
                         <li><a tabindex="-1" href="#">Something else here</a></li>
                         <li class="divider"></li>
@@ -84,10 +84,6 @@
                         <li><a tabindex="-1" href="#">Separated link</a></li>
                       </ul>
                     </li>
-                  </ul>
-
-                  <ul class="nav pull-right">
-                    @Html.Partial("_LoginPartial")
                     <li id="fat-menu" class="dropdown">
                       <a href="#" id="drop5" role="button" class="dropdown-toggle" data-toggle="dropdown">About Ludus <b class="caret"></b></a>
                       <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
@@ -98,6 +94,9 @@
                         <li><a tabindex="-1" href="~/Documents/Ludus SRS.docx">Ludus SRS</a></li>
                       </ul>
                     </li>
+                    <ul class="nav pull-right">
+                       @Html.Partial("_LoginPartial")
+                    </ul>
                   </ul>
           </div><!--/.nav-collapse -->
         </div>

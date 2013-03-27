@@ -8,23 +8,32 @@ using System.Web.Security;
 
 namespace Ludus.Models
 {
-    public class UsersContext : DbContext
-    {
-        public UsersContext()
-            : base("DefaultConnection")
-        {
-        }
-
-        public DbSet<UserProfile> UserProfiles { get; set; }
-    }
-
     [Table("UserProfile")]
     public class UserProfile
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
+
+        [Display(Name = "FSU ID")]
+        [Required]
         public string UserName { get; set; }
+
+        [Display(Name = "First Name")]
+        [Required]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Last Name")]
+        [Required]
+        public string LastName { get; set; }
+
+        [Display(Name = "Display Name")]
+        [Required]
+        public string DisplayName { get; set; }
+
+        [Display(Name = "Email Address")]
+        [Required]
+        public string EmailAddress { get; set; }
+
     }
 
     public class RegisterExternalLoginModel
@@ -73,7 +82,7 @@ namespace Ludus.Models
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "FSU ID")]
         public string UserName { get; set; }
 
         [Required]
@@ -86,6 +95,22 @@ namespace Ludus.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "First Name")]
+        [Required]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Last Name")]
+        [Required]
+        public string LastName { get; set; }
+
+        [Display(Name = "Display Name")]
+        [Required]
+        public string DisplayName { get; set; }
+
+        [Display(Name = "Email Address")]
+        [Required]
+        public string EmailAddress { get; set; }
     }
 
     public class ExternalLogin

@@ -21,6 +21,15 @@ namespace Ludus.Controllers
             return View();
 
         }
+        // GET: /PersonalIItem/
+        public ActionResult DayView()
+        {
+            using (DataServices.PersonalItemService ds = new DataServices.PersonalItemService())
+            {
+                return View(ds.MyItems());
+            }
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";
