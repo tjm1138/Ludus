@@ -4,7 +4,7 @@ namespace Ludus.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    [Table("StudentBadgeLink")]
+    [Table("Student")]
     public class Student
     {
         public Student()

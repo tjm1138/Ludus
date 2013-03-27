@@ -13,7 +13,6 @@
         [Key]
         public int Id { get; set; }
         
-        [ForeignKey(name: "FK_PersonalItem_ToUserProfile")]
         public int UserId { get; set; }
 
         [Display(Name = "Due")]

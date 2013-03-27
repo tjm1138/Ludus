@@ -10,10 +10,7 @@ namespace Ludus.Models
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("FK_Submission_ToEnrollment")]
         public int EnrollmentId { get; set; }
-
-        [ForeignKey("FK_Submission_ToAssignment")]
         public int AssignmentId { get; set; }
 
         public int Grade { get; set; }
