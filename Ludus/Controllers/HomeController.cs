@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Ludus.Filters;
 namespace Ludus.Controllers
 {
+    [InitializeSimpleMembership]
     public class HomeController : Controller
     {
+        private DataServices.PersonalItemService ds = new DataServices.PersonalItemService();
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application, yo.";
 
-            return View();
+            return View(ds.MyItems());
         }
         public ActionResult Documents()
         {
@@ -43,5 +45,11 @@ namespace Ludus.Controllers
 
             return View();
         }
+        protected override void Dispose(bool disposing)
+        {
+            ds.Dispose();
+            base.Dispose(disposing);
+        }
+ 
     }
 }

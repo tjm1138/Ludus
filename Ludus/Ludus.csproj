@@ -350,7 +350,7 @@
     <Content Include="Views\PersonalItem\Create.cshtml" />
     <Content Include="Views\PersonalItem\Edit.cshtml" />
     <Content Include="Views\PersonalItem\Delete.cshtml" />
-    <Content Include="Views\Shared\_DayViewPartial.cshtml" />
+    <Content Include="Views\Home\_DayViewPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
