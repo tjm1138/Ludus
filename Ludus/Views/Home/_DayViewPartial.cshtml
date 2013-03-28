@@ -1,51 +1,21 @@
 ﻿@model IEnumerable<Ludus.Models.PersonalItem>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.UserId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Due)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShortDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Complete)
-        </th>
-        <th></th>
-    </tr>
-
+@Html.ActionLink("Create New", "Create", "PersonalItem")
+<div class="accordion" id="accordion2">
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Due)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShortDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Complete)
-        </td>
-        <td>
+    <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse-@item.Id">
+        @item.ShortDescription           Due: @item.Due     
+      </a>
+    </div>
+    <div id="collapse-@item.Id" class="accordion-body collapse">
+      <div class="accordion-inner">
+          <div style="text-align:center; font-size:large">item.Description</div>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+      </div>
+    </div>
+  </div>
 }
-
-</table>
+</div>

@@ -178,9 +178,11 @@
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonalItemController.cs" />
+    <Compile Include="DataServices\CalendarService.cs" />
     <Compile Include="Models\Assignment.cs" />
     <Compile Include="Models\Award.cs" />
     <Compile Include="Models\Badge.cs" />
+    <Compile Include="Models\CalendarModel.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseAwardLink.cs" />
     <Compile Include="Models\CourseItemLink.cs" />
