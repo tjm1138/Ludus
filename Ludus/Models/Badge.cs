@@ -19,5 +19,26 @@ namespace Ludus.Models
     
         public virtual Section Section { get; set; }
         public virtual ICollection<StudentBadgeLink> StudentBadgeLinks { get; set; }
+
+
+        [Display(Name = "Badge Earned")]
+        [Required]
+        public System.DateTime Due { get; set; }
+
+        [Display(Name = "Badge Mini Description")]
+        [Required]
+        public string ShortDescription { get; set; }
+
+        [Display(Name = "Description")]
+        public string Description { get; set; }
+
+        [Display(Name = "Earned")]
+        [Required]
+        public bool Complete { get; set; }
+    }
+}
+
+
+
     }
 }
