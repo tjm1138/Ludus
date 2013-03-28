@@ -175,6 +175,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BadgeController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonalItemController.cs" />
@@ -353,6 +354,8 @@
     <Content Include="Views\PersonalItem\Edit.cshtml" />
     <Content Include="Views\PersonalItem\Delete.cshtml" />
     <Content Include="Views\Home\_DayViewPartial.cshtml" />
+    <Content Include="Views\Home\Badges.cshtml" />
+    <Content Include="Views\Badge\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

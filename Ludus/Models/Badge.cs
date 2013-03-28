@@ -37,8 +37,3 @@ namespace Ludus.Models
         public bool Complete { get; set; }
     }
 }
-
-
-
-    }
-}
