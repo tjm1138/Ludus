@@ -6,15 +6,14 @@
     using System.Data;
     using System.Linq;
     using System.Web.Security;
-    using WebMatrix.WebData;
     public class PersonalItemService : IDisposable
     {
         private Ludus.Models.DataContext dc = new Ludus.Models.DataContext();
-        public ICollection<PersonalItem> MyItems()
+        public ICollection<PersonalItem> Get(int userId)
         {
             ICollection<PersonalItem> returnValue;
             returnValue = (from pi in dc.PersonalItems
-                       where (pi.UserId == WebSecurity.CurrentUserId)
+                       where (pi.UserId == userId)
                        select pi).ToList();
             return returnValue;
         }

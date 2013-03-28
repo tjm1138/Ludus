@@ -19,12 +19,12 @@
         [Required]
         public System.DateTime Due { get; set; }
 
-        [Display(Name = "Short Description")]
-        [Required]
-        public string ShortDescription { get; set; }
-
         [Display(Name = "Description")]
+        [Required]
         public string Description { get; set; }
+
+        [Display(Name = "Notes")]
+        public string Notes { get; set; }
 
         [Display(Name = "Complete")]
         [Required]

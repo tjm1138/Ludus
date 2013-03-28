@@ -1,20 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Ludus.Filters;
-namespace Ludus.Controllers
+﻿namespace Ludus.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Security;
+    using Ludus.Filters;
+    using Ludus.Models;
+    using WebMatrix.WebData;
+
     [InitializeSimpleMembership]
     public class HomeController : Controller
     {
-        private DataServices.PersonalItemService ds = new DataServices.PersonalItemService();
+        private DataServices.CalendarService cs = new DataServices.CalendarService();
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application, yo.";
 
-            return View(ds.MyItems());
+            return View(cs.Get(WebSecurity.CurrentUserId));
         }
         public ActionResult Documents()
         {
@@ -28,7 +34,7 @@ namespace Ludus.Controllers
         {
             using (DataServices.PersonalItemService ds = new DataServices.PersonalItemService())
             {
-                return View(ds.MyItems());
+                return View(cs.Get(WebSecurity.CurrentUserId));
             }
         }
 
@@ -47,7 +53,7 @@ namespace Ludus.Controllers
         }
         protected override void Dispose(bool disposing)
         {
-            ds.Dispose();
+            cs.Dispose();
             base.Dispose(disposing);
         }
  

@@ -16,6 +16,7 @@ namespace Ludus.Models
         public int Id { get; set; }
         public int SectionId { get; set; }
         public string Description { get; set; }
+        public string Notes { get; set; }
         public Nullable<System.DateTime> Due { get; set; }
         public int SubmissionLimit { get; set; }
         public int MaximumGrade { get; set; }

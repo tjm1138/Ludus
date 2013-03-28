@@ -22,12 +22,12 @@ namespace Ludus.Controllers
         public ActionResult Index()
         {
             ViewBag.Label = "View Personal Items";
-            return View(ds.MyItems());
+            return View(ds.Get(WebSecurity.CurrentUserId));
         }
         // GET: /PersonalIItem/
         public ActionResult DayView()
         {
-            return View(ds.MyItems());
+            return View(ds.Get(WebSecurity.CurrentUserId));
         }
 
         //
@@ -59,7 +59,7 @@ namespace Ludus.Controllers
         {
             if (ModelState.IsValid)
             {
-                personalitem.UserId = 5;//User.Identity
+                personalitem.UserId = WebSecurity.CurrentUserId;//User.Identity
                 ds.Create(personalitem);
                 return RedirectToAction("Index");
             }
