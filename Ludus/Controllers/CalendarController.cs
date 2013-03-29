@@ -16,21 +16,15 @@
     public class CalendarController : Controller
     {
         private DataServices.CalendarService cs = new DataServices.CalendarService();
-        //
-        // GET: /PersonalIItem/
         public ActionResult Index()
         {
             ViewBag.Label = "View Personal Items";
             return View(cs.Get(WebSecurity.CurrentUserId));
         }
-        // GET: /PersonalIItem/
         public ActionResult DayView()
         {
             return View(cs.Get(WebSecurity.CurrentUserId));
         }
-
-        //
-        // GET: /PersonalIItem/Details/5
 
         protected override void Dispose(bool disposing)
         {
