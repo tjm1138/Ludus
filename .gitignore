@@ -42,8 +42,10 @@ local.properties
 *.sln.docstates
 *.cache
 *.pdb
-Debug/
-Debug/*
+bin/
+bin/*
+bin/Debug
+bin/Debug/*
 
 
 # Build results
