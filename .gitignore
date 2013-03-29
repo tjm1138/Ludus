@@ -41,6 +41,10 @@ local.properties
 *.user
 *.sln.docstates
 *.cache
+*.pdb
+Debug/
+Debug/*
+
 
 # Build results
 [Dd]ebug/
