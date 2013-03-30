@@ -19,7 +19,7 @@
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application, yo.";
-
+            ViewBag.View = "Month";
             return View(cs.Get(WebSecurity.CurrentUserId));
         }
         public ActionResult Documents()
@@ -28,14 +28,6 @@
 
             return View();
 
-        }
-        // GET: /PersonalIItem/
-        public ActionResult DayView()
-        {
-            using (DataServices.PersonalItemService ds = new DataServices.PersonalItemService())
-            {
-                return View(cs.Get(WebSecurity.CurrentUserId));
-            }
         }
 
         public ActionResult About()

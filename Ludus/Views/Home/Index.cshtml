@@ -2,19 +2,19 @@
 @{
     ViewBag.Title = "Home Page";
 }
- 
+<div class="btn-group">
+  <button class="btn">Month View</button>
+  <button class="btn">List View</button>
+</div>
 
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span2">
-            NAVIGATION
-        </div>
         <div class="span10">
-            @Html.Partial("../Calendar/_CalendarPartial")
+            @Html.Partial("../Home/_CalendarPartial")
         </div>
     </div>
 </div>
-@Html.Partial("../Home/_DayViewPartial")
+@Html.Partial("../Home/_ListPartial" )
 <h3>We suggest the following:</h3>
 <ol class="round">
     <li class="one">

@@ -11,14 +11,17 @@
         public Calendar Get(int userId)
         {
             Calendar returnValue = new Calendar();
+
             using (var svc = new PersonalItemService())
             {
-                returnValue.PersonalItems = svc.Get(userId);
+                returnValue.Items = (from i in svc.Get(userId) select (CalendarBase) i).ToList();
             }
             using (var svc = new AssignmentService())
             {
-                returnValue.Assignments = svc.Get(userId);
+                foreach (CalendarBase b in (from i in svc.Get(userId) select (CalendarBase)i))
+                    returnValue.Items.Add(b);
             }
+            returnValue.Items.OrderBy(c => c.Due);
             return returnValue;
         }
 

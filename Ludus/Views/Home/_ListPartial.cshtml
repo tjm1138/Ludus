@@ -1,11 +1,12 @@
 ﻿@model Ludus.Models.Calendar
 @Html.ActionLink("Create New", "Create", "PersonalItem")
 <div class="accordion" id="accordion2">
-@foreach (var item in Model.PersonalItems) {
+@foreach (var item in Model.Items.OrderBy(c=>c.Due)) {
     <div class="accordion-group">
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapsep-@item.Id">
-        Personal - @item.Description           
+          @if (item is Ludus.Models.PersonalItem){<text>Personal </text>}else{<text>Assignment </text>}
+- @item.Description           
         Due: @item.Due     
       </a>
     </div>
@@ -15,23 +16,6 @@
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-      </div>
-    </div>
-  </div>
-}
-@foreach (var item in Model.Assignments) {
-    <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapsea-@item.Id">
-        Assignment - @item.Description 
-        Due: @item.Due     
-      </a>
-    </div>
-    <div id="collapsea-@item.Id" class="accordion-body collapse">
-      <div class="accordion-inner">
-          <div style="text-align:center; font-size:large">@item.Notes</div>
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Submit", "Submit", new { id=item.Id })
       </div>
     </div>
   </div>

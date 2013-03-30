@@ -8,23 +8,11 @@
     using System.Globalization;
     using System.Web.Security;
     [Table("PersonalItem")]
-    public class PersonalItem
+    public class PersonalItem : CalendarBase
     {
-        [Key]
-        public int Id { get; set; }
-        
+        [Display(Name = "User Id")]
+        [Required]
         public int UserId { get; set; }
-
-        [Display(Name = "Due")]
-        [Required]
-        public System.DateTime Due { get; set; }
-
-        [Display(Name = "Description")]
-        [Required]
-        public string Description { get; set; }
-
-        [Display(Name = "Notes")]
-        public string Notes { get; set; }
 
         [Display(Name = "Complete")]
         [Required]
