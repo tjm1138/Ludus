@@ -18,8 +18,23 @@
                               join ses in dc.Sessions on sec.SessionId equals ses.Id
                               where stu.UserId == UserId && ses.Active == true
                               select enr).ToList();
+            using (SectionService svc = new SectionService())
+            {
+                foreach (Enrollment e in enrollments)
+                {
+                    e.Section = svc.Find(e.SectionId);
+                }
+            }
             return enrollments;
         }
+        public Enrollment Find(int Id)
+        {
+            Enrollment returnValue = (from e in dc.Enrollments
+                                  where e.Id == Id
+                                  select e).FirstOrDefault();
+            return returnValue;
+        }
+
 
         public void Dispose()
         {

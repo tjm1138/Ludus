@@ -10,12 +10,10 @@
     [Table("PersonalItem")]
     public class PersonalItem : CalendarBase
     {
-        [Display(Name = "User Id")]
-        [Required]
+        [Display(Name = "User Id"), Required]
         public int UserId { get; set; }
 
-        [Display(Name = "Complete")]
-        [Required]
+        [Display(Name = "Complete"), Required]
         public bool Complete { get; set; }
     }
 }

@@ -21,20 +21,27 @@ namespace Ludus.DataServices
         private Ludus.Models.DataContext dc = new Ludus.Models.DataContext();
         public ICollection<Assignment> Get(int userId)
         {
-            var sectionIds = from e in new EnrollmentService().Get(userId)
-                                select e.SectionId;
+            var sectionIds = (from e in new EnrollmentService().Get(userId)
+                             select e.SectionId).ToList();
             ICollection<Assignment> returnValue;
             if (sectionIds.Count() > 0)
             {
-                returnValue = (from ass in dc.Assignments
-                               join sec in dc.Sections on ass.SectionId equals sec.Id
+                returnValue = (from a in dc.Assignments
+                               join sec in dc.Sections on a.SectionId equals sec.Id
                                join crs in dc.Courses on sec.CourseId equals crs.Id
                                where sectionIds.Contains(sec.Id)
-                               select ass).ToList();
+                               select a).ToList();
             }
             else
             {
                 returnValue = new List<Assignment>();
+            }
+            using (var svc = new SectionService())
+            {
+                foreach (var item in returnValue)
+                {
+                    item.Section = svc.Find(item.SectionId);
+                }
             }
             return returnValue;
         }

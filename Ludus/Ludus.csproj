@@ -185,6 +185,7 @@
     <Compile Include="DataServices\CourseService.cs" />
     <Compile Include="DataServices\EnrollmentService.cs" />
     <Compile Include="DataServices\SessionService.cs" />
+    <Compile Include="DataServices\SectionService.cs" />
     <Compile Include="Models\Assignment.cs" />
     <Compile Include="Models\Award.cs" />
     <Compile Include="Models\Badge.cs" />

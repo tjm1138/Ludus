@@ -33,13 +33,14 @@ namespace Ludus.Controllers
         //
         // GET: /PersonalIItem/Details/5
 
-        public ActionResult Details(int id = 0)
+        public ActionResult Details(int id = 0, bool goHome = false)
         {
             PersonalItem personalitem = ds.Find(id);
             if (personalitem == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.goHome = goHome;
             return View(personalitem);
         }
 
@@ -70,13 +71,14 @@ namespace Ludus.Controllers
         //
         // GET: /PersonalIItem/Edit/5
 
-        public ActionResult Edit(int id = 0)
+        public ActionResult Edit(int id = 0, bool goHome = false)
         {
             PersonalItem personalitem = ds.Find(id);
             if (personalitem == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.goHome = goHome;
             return View(personalitem);
         }
 

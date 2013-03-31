@@ -59,10 +59,14 @@
         </p>
     </fieldset>
 }
-
-<div>
+@if (ViewBag.goHome)
+{
+    @Html.ActionLink("Back Home", "Index", "Home")
+}
+else
+{
     @Html.ActionLink("Back to List", "Index")
-</div>
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
