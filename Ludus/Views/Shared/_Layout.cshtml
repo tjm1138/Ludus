@@ -77,9 +77,8 @@
                     <li class="dropdown">
                       <a href="#" id="drop4" role="button" class="dropdown-toggle" data-toggle="dropdown">Administrator <b class="caret"></b></a>
                       <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                        <li>@Html.ActionLink("Manage Courses", "Index", "Course", routeValues: null, htmlAttributes: new { id = "coursesLink" })</li>
                         <li>@Html.ActionLink("Manage Sessions", "Index", "Session", routeValues: null, htmlAttributes: new { id = "sessionsLink" })</li>
-                        <li><a tabindex="-1" href="#">Another action</a></li>
-                        <li><a tabindex="-1" href="#">Something else here</a></li>
                         <li class="divider"></li>
                         <li><a tabindex="-1" href="#">Separated link</a></li>
                       </ul>
