@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Ludus.Models.Session>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sesssions</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Start Date
+        </th>
+        <th>
+            End Date
+        </th>
+        <th>
+            Active
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var session in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => session.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => session.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => session.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => session.Active)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=session.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=session.Id })
+        </td>
+    </tr>
+}
+
+</table>
