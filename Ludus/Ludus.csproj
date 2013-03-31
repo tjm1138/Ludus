@@ -176,12 +176,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
+    <Compile Include="Controllers\BadgesController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonalItemController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="DataServices\AssignmentService.cs" />
     <Compile Include="DataServices\CalendarService.cs" />
+    <Compile Include="DataServices\BadgesService.cs" />
     <Compile Include="DataServices\CourseService.cs" />
     <Compile Include="DataServices\EnrollmentService.cs" />
     <Compile Include="DataServices\SessionService.cs" />
@@ -378,6 +380,11 @@
     <Content Include="Views\Course\Delete.cshtml" />
     <Content Include="Views\Course\Edit.cshtml" />
     <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Badges\Create.cshtml" />
+    <Content Include="Views\Badges\Delete.cshtml" />
+    <Content Include="Views\Badges\Details.cshtml" />
+    <Content Include="Views\Badges\Edit.cshtml" />
+    <Content Include="Views\Badges\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

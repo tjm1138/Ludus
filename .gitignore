@@ -10,6 +10,7 @@ tmp/
 *.tmp
 *.bak
 *.swp
+
 *~.nib
 local.properties
 .classpath
@@ -43,7 +44,7 @@ local.properties
 *.cache
 *.pdb
 *.dll
-
+*.cache
 
 # Build results
 [Dd]ebug/
@@ -103,6 +104,8 @@ publish
 # Others
 [Bb]in
 [Oo]bj
+bin/
+obj/
 sql
 TestResults
 *.Cache
