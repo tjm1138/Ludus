@@ -6,7 +6,6 @@
     using System.Data;
     using System.Linq;
     using System.Web.Security;
-<<<<<<< HEAD
     using WebMatrix.WebData;
     public class CourseService : IDisposable
     {
@@ -20,8 +19,10 @@
         }
         public Course Find(int id)
         {
-            return dc.Courses.Find(id);
-        }
+            Course returnValue = (from s in dc.Courses
+                                   where s.Id == id
+                                   select s).FirstOrDefault();
+            return returnValue;        }
         public void Remove(int id)
         {
             Course Course = Find(id);
@@ -38,19 +39,6 @@
             dc.Entry(item).State = EntityState.Modified;
             dc.SaveChanges();
         }
-=======
-    public class CourseService : IDisposable
-    {
-        private Ludus.Models.DataContext dc = new Ludus.Models.DataContext();
-        public Course Find(int Id)
-        {
-            Course returnValue = (from s in dc.Courses
-                                   where s.Id == Id
-                                   select s).FirstOrDefault();
-            return returnValue;
-        }
->>>>>>> Updates to the List view of calendar items
-
         public void Dispose()
         {
             dc.Dispose();
