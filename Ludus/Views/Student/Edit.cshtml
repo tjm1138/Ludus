@@ -18,28 +18,16 @@
             @Html.LabelFor(model => model.UserProfile.UserName)
         </div>
         <div class="editor-field">
-            @Html.DisplayFor(model => model.UserProfile.UserName)
+           @Html.DropDownList("UserList")
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UserProfile.FirstName)
-        </div>
-        <div class="editor-field">
-            @Html.DisplayFor(model => model.UserProfile.FirstName)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UserProfile.LastName)
-        </div>
-        <div class="editor-field">
-            @Html.DisplayFor(model => model.UserProfile.LastName)
-        </div>
-
         <div class="editor-label">
             @Html.LabelFor(model => model.Session.Name)
         </div>
+        <div class="editor-label">
+            @Html.DropDownList("SessionList")
+        </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Session.Name)
+
         </div>
 
         <br />

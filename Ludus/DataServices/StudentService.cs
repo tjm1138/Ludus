@@ -29,13 +29,15 @@
         }
         public void Create(Student student)
         {
+            //student.UserId = 
+            //student.SessionId = 
             dc.Students.Add(student);
             dc.SaveChanges();
         }
         public void Update(Student student)
         {
             
-            //dc.Entry(student).State = EntityState.Modified;
+            dc.Entry(student).State = EntityState.Modified;
             dc.SaveChanges();
         }
         public ICollection<Session> DisplaySessions()

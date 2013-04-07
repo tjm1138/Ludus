@@ -23,7 +23,7 @@ namespace Ludus.Models
         [Display(Name = "Session Id")]
         [Required]
         public int SessionId { get; set; }
-    
+
         public virtual ICollection<Enrollment> Enrollments { get; set; }
         public virtual Session Session { get; set; }
         public virtual UserProfile UserProfile { get; set; }

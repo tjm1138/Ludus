@@ -28,24 +28,38 @@ namespace Ludus.Controllers
 
         // GET: /Student/Create
 
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
         public ActionResult Create()
         {
+            // query users to a list
+            var userResults = (from u in dc.UserProfiles
+                               select u).ToList();
+
+            // query sessions to a list
+            var sessionResults = (from s in dc.Sessions
+                           select s).ToList();
+
+            // populate user list to drop down menu
+            IEnumerable<SelectListItem> users;
+            users = userResults.Select(a => new SelectListItem
+            {
+                Value = a.UserId.ToString(),
+                Text = a.UserName
+            });
+
+            // populate session list to drop down menu
             IEnumerable<SelectListItem> sessions;
-            sessions = (from sess in dc.Sessions
-                        select new SelectListItem
+            sessions = sessionResults.Select(a => new SelectListItem
                         {
-                            Text = sess.Name,
-                            Value = sess.Id.ToString()
-                        }).ToList();
-            ViewBag.ListItems = sessions;
+                            Value = a.Id.ToString(),
+                            Text = a.Name
+                        });
+                        
+            ViewBag.UserList = users;       // set user list to ViewBag
+            ViewBag.SessionList = sessions; // set session list to View Bag
             return View();
 
         }
+
         // POST: /Student/Create
 
         [HttpPost]
@@ -69,7 +83,37 @@ namespace Ludus.Controllers
             {
                 return HttpNotFound();
             }
-            return View(student);
+            
+            // query users to a list
+            var userResults = (from u in dc.UserProfiles
+                               select u).ToList();
+
+            // query sessions to a list
+            var sessionResults = (from s in dc.Sessions
+                                  select s).ToList();
+
+            // populate user list to drop down menu
+            IEnumerable<SelectListItem> users;
+            users = userResults.Select(a => new SelectListItem
+            {
+                Value = a.UserId.ToString(),
+                Text = a.UserName
+            });
+
+            // populate session list to drop down menu
+            IEnumerable<SelectListItem> sessions;
+            sessions = sessionResults.Select(a => new SelectListItem
+            {
+                Value = a.Id.ToString(),
+                Text = a.Name
+            });
+            
+            var model = new Student();
+            model.UserId = id;
+
+            ViewBag.UserList = users;       // set user list to ViewBag
+            ViewBag.SessionList = sessions; // set session list to View Bag
+            return View(model);
         }
 
         // POST: /Student/Edit/5
