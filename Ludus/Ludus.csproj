@@ -181,6 +181,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonalItemController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="DataServices\AssignmentService.cs" />
     <Compile Include="DataServices\CalendarService.cs" />
     <Compile Include="DataServices\BadgesService.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="DataServices\EnrollmentService.cs" />
     <Compile Include="DataServices\SessionService.cs" />
     <Compile Include="DataServices\SectionService.cs" />
+    <Compile Include="DataServices\StudentService.cs" />
     <Compile Include="Models\Assignment.cs" />
     <Compile Include="Models\Award.cs" />
     <Compile Include="Models\Badge.cs" />
@@ -198,6 +200,7 @@
     <Compile Include="Models\CourseItemLink.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Enrollment.cs" />
+    <Compile Include="Models\ExtensionMethods.cs" />
     <Compile Include="Models\Faculty.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Permission.cs" />
@@ -385,6 +388,14 @@
     <Content Include="Views\Badges\Details.cshtml" />
     <Content Include="Views\Badges\Edit.cshtml" />
     <Content Include="Views\Badges\Index.cshtml" />
+    <Content Include="Views\Student\Create.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Student\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
