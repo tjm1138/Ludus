@@ -29,10 +29,28 @@ namespace Ludus.Controllers
         private DataServices.CalendarService cs = new DataServices.CalendarService();
         public ActionResult Index()
         {
-            ViewBag.View = "Month";
+            if (Session["IndexView"] == null)
+                Session["IndexView"] = "Month";
+            //ViewBag.View = "Month";
             // Retrieves the calendar entries for the current user, and feeds them to the view.
             DataServices.CalendarService cs = new DataServices.CalendarService();
             return View(cs.Find(WebSecurity.CurrentUserId));
+        }
+
+        //[HttpPost, ActionName("Month")]
+        //public ActionResult Index(Calendar calendar)
+        //{
+        //    ViewBag.View = "Month";
+        //    return RedirectToAction("Index");
+        //}
+        [HttpPost]
+        public ActionResult Index(Calendar calendar)
+        {
+            if (Session["IndexView"] == "Month")
+                Session["IndexView"] = "List";
+            else
+                Session["IndexView"] = "Month";
+            return RedirectToAction("Index");
         }
         public ActionResult Documents()
         {

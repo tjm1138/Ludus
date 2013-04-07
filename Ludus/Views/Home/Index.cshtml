@@ -2,11 +2,12 @@
 @{
     ViewBag.Title = "Home Page";
 }
-@if (Request.IsAuthenticated) {
-<div class="btn-group">
-  <button class="btn">Month View</button>
-  <button class="btn">List View</button>
-</div>
+@if (Request.IsAuthenticated)
+{
+using (Html.BeginForm()) {
+    if (Session["IndexView"] == "Month")
+    {
+    <input type="submit" class="btn btn-success" value="Switch to List View" />
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span10">
@@ -15,6 +16,12 @@
         </div>
     </div>
 </div>
+    }
+    if (Session["IndexView"] == "List")
+    {
+    <input type="submit" class="btn btn-success" value="Switch to Month View" />
 @* include the List view (for now) *@
-@Html.Partial("../Home/_ListPartial" )
+@Html.Partial("../Home/_ListPartial")
+    }
+    }
 }
