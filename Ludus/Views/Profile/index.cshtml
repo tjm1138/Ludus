@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Profile";
+    string biography = @Model.Biography;
+}
+
+<hgroup class="title">
+    <h1>@Model.DisplayName</h1>
+</hgroup>
+
+<div>
+
+    <div id="profile_content">
+
+        <!-- Row with user's photo and biography -->
+        <div class="row">
+            <div class="span1 offset2">
+                <img id="profile_photo" src="@ViewBag.gravatar" class="avatar" alt=""/>
+            </div>
+
+            <div class="span7">
+                <div id="biography">
+                    <p id="biography_text">@biography</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="badges" class="row">
+            <div class="span8 offset2">
+                <span>TODO: Display Adam's badges here, in next implementation stage.</span>
+            </div>
+        </div>
+
+        <div id="courses">
+            <span id="courseList"></span>
+        </div>
+
+    </div>
+
+</div>

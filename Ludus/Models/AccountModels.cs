@@ -34,6 +34,10 @@ namespace Ludus.Models
         [Required]
         public string EmailAddress { get; set; }
 
+        [Display(Name = "Biography")]
+        [Required]
+        public string Biography { get; set; }
+
     }
 
     public class RegisterExternalLoginModel

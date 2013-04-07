@@ -180,6 +180,7 @@
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonalItemController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="DataServices\AssignmentService.cs" />
@@ -396,6 +397,7 @@
     <Content Include="Views\Student\Index.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Profile\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
