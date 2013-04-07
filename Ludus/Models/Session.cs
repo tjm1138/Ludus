@@ -15,9 +15,21 @@ namespace Ludus.Models
         }
         [Key]
         public int Id { get; set; }
+
+        [Display(Name = "Start Date")]
+        [Required]
         public System.DateTime StartDate { get; set; }
+
+        [Display(Name = "End Date")]
+        [Required]
         public System.DateTime EndDate { get; set; }
+
+        [Display(Name = "Active Session")]
+        [Required]
         public bool Active { get; set; }
+
+        [Display(Name = "Session Name")]
+        [Required]
         public string Name { get; set; }
     
         public virtual ICollection<Faculty> Faculties { get; set; }
