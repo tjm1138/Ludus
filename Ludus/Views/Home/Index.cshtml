@@ -2,11 +2,11 @@
 @{
     ViewBag.Title = "Home Page";
 }
+@if (Request.IsAuthenticated) {
 <div class="btn-group">
   <button class="btn">Month View</button>
   <button class="btn">List View</button>
 </div>
-
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span10">
@@ -17,3 +17,4 @@
 </div>
 @* include the List view (for now) *@
 @Html.Partial("../Home/_ListPartial" )
+}
