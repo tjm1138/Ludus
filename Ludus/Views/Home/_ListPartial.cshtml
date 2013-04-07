@@ -1,7 +1,15 @@
-﻿@model Ludus.Models.Calendar
-@Html.ActionLink("Create New", "Create", "PersonalItem")
+﻿@*
+ListPartial - A list view for the calendar items for an individual
+Thomas Moseley
+May 31, 2013
+*@
+@model Ludus.Models.Calendar
+@* a link to create new personal items *@
+@Html.ActionLink("Create New Personal Item", "Create", "PersonalItem")
+@* The list view is an accordion style view *@
 <div class="accordion" id="accordion2">
 @foreach (var item in Model.Items.OrderBy(c=>c.Due)) {
+    @* For each item, we must construct the proper accordion values *@
         string id;
         string href;
         if (item is Ludus.Models.PersonalItem)
@@ -16,6 +24,7 @@
     <div class="accordion-group">
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="@href">
+         @* If an item is personal, then all the item header says is personal. OTherwise, it shows the course info *@
           @if (item is Ludus.Models.PersonalItem)
           {
               <text>Personal </text>
@@ -32,6 +41,7 @@
     <div id="@id" class="accordion-body collapse">
       <div class="accordion-inner">
           <div style="text-align:center; font-size:large">@item.Notes</div>
+         @* If an item is personal, then link to editor, otherwise to submittors *@
           @if (item is Ludus.Models.PersonalItem)
           {
             @Html.ActionLink("Edit", "Edit", "PersonalItem", new { id=item.Id, goHome=true }, null)<text> | </text>

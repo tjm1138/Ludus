@@ -1,4 +1,9 @@
-﻿namespace Ludus.Controllers
+﻿/*
+ * Home Controller - Controls interactions between views in the Home folder and models 
+ * Thomas Moseley
+ * May 31, 2013
+*/
+namespace Ludus.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -8,32 +13,39 @@
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Security;
+    // Filters is required for the InitializeSimpleMembership attribute, necessary to interact with 
+    // the membership system.
     using Ludus.Filters;
+    // Models are data structures on which the code runs.
     using Ludus.Models;
+    // Contains the Membership system
     using WebMatrix.WebData;
 
+    // This attribute, coded in Ludus.Filters, initializes the Membership system for inquiries, such 
+    // as WebSecurity.CurrentUserId
     [InitializeSimpleMembership]
     public class HomeController : Controller
     {
         private DataServices.CalendarService cs = new DataServices.CalendarService();
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application, yo.";
             ViewBag.View = "Month";
-            return View(cs.Get(WebSecurity.CurrentUserId));
+            // Retrieves the calendar entries for the current user, and feeds them to the view.
+            DataServices.CalendarService cs = new DataServices.CalendarService();
+            return View(cs.Find(WebSecurity.CurrentUserId));
         }
         public ActionResult Documents()
         {
+            // Static Page, at the moment, so no data retrieval necessary.
+            // TODO: Create Documents management page.
             ViewBag.Message = "Your documents";
-
             return View();
-
         }
 
         public ActionResult About()
         {
+            // Static Page, so no data retrieval necessary.
             ViewBag.Message = "Your app description page.";
-
             return View();
         }
 
@@ -43,11 +55,5 @@
 
             return View();
         }
-        protected override void Dispose(bool disposing)
-        {
-            cs.Dispose();
-            base.Dispose(disposing);
-        }
- 
     }
 }
