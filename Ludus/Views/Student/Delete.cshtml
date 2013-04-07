@@ -1,4 +1,4 @@
-﻿@model Ludus.Models.Course
+﻿@model Ludus.Models.Student
 
 @{
     ViewBag.Title = "Delete";
@@ -10,24 +10,18 @@
 <table class="table table-bordered">
     <tr>
         <th>
-            Course Number
+            @Html.DisplayNameFor(model => model.UserId)
         </th>
         <th>
-            Course Name
-        </th>
-        <th>
-            Active
+            @Html.DisplayNameFor(model => model.SessionId)
         </th>
     </tr>
     <tr>
         <td>
-            @Html.DisplayFor(model => model.Number)
+            @Html.DisplayFor(model => model.UserId)
         </td>
         <td>
-            @Html.DisplayFor(model => model.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.Active)
+            @Html.DisplayFor(model => model.SessionId)
         </td>
     </tr>
 </table>
