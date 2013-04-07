@@ -227,6 +227,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\old.bootstrap.css" />
     <Content Include="Content\old.bootstrap.min.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
