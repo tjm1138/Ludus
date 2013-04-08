@@ -1,0 +1,29 @@
+﻿.calcel {
+    display: block;
+    float: left;
+    width: 150px;
+    min-height: 60px;
+    margin-top:5px;
+    margin-left: 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.calcel.first {
+    margin-left: 15px;
+}
+    .calcel.today {
+        background-color:aliceblue;
+    }
+    .calcel.month {
+        height:40px;
+        text-align: center;
+        vertical-align: central;
+        background-color: #45aeea;
+        border:solid 2px navy;
+        color: white;
+    }
+.btn.event {
+    margin-top:1px;
+    width:126px;
+}

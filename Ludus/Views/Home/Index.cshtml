@@ -7,15 +7,15 @@
 using (Html.BeginForm()) {
     if (Session["IndexView"] == "Month")
     {
-    <input type="submit" class="btn btn-success" value="Switch to List View" />
-<div class="container-fluid">
+    <input type="submit" class="btn btn-success" value="Switch to List View" />@*
+@*<div class="container-fluid">
     <div class="row-fluid">
-        <div class="span10">
+        <div class="span10">*@
             @* include the Calendar view (for now) *@
             @Html.Partial("../Home/_CalendarPartial")
-        </div>
+@*        </div>
     </div>
-</div>
+</div>*@
     }
     if (Session["IndexView"] == "List")
     {
