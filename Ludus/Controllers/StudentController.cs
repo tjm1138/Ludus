@@ -110,7 +110,7 @@ namespace Ludus.Controllers
             
             var model = new Student();
             model.UserId = id;
-
+            ViewBag.SessionId = new SelectList(sessions, "Value", "Text", student.SessionId);  
             ViewBag.UserList = users;       // set user list to ViewBag
             ViewBag.SessionList = sessions; // set session list to View Bag
             return View(model);
