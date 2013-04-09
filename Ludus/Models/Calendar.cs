@@ -9,6 +9,7 @@
     using System.Web.Security;
     public class Calendar
     {
+        public DateTime DisplayMonth;
         public ICollection<CalendarBase> Items { get; set; }
         public Calendar()
         {

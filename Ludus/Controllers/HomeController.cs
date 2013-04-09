@@ -34,7 +34,7 @@ namespace Ludus.Controllers
             //ViewBag.View = "Month";
             // Retrieves the calendar entries for the current user, and feeds them to the view.
             DataServices.CalendarService cs = new DataServices.CalendarService();
-            return View(cs.Find(WebSecurity.CurrentUserId));
+            return View(cs.Find(WebSecurity.CurrentUserId, new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)));
         }
 
         //[HttpPost, ActionName("Month")]

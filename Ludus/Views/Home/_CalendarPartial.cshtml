@@ -1,39 +1,62 @@
-﻿<div class="navbar">
+﻿@model Ludus.Models.Calendar
+<div class="navbar">
     <div class="navbar-inner">
-        <a href="#" class="brand">April 2013</a>
+        <a href="#" class="brand">@String.Format("{0:MMMM yyyy}", Model.DisplayMonth)</a>
         <ul class="nav pull-right dropdown">
-           <li><a href="/plan?month=3&amp;year=2013">&lt; March</a></li>
-           <li><a href="/plan?month=5&amp;year=2013">May &gt;</a></li>
+            <li><a href="/plan?month=3&amp;year=2013">&lt; March</a></li>
+            <li><a href="/plan?month=5&amp;year=2013">May &gt;</a></li>
         </ul>
         <form accept-charset="UTF-8" action="/plan" class="navbar-form pull-right" method="post">
             <div style="margin: 0; padding: 0; display: inline">
-                <input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OjEruRp24AEXsg3gvTRwNQkZjKUarQqDK1ywtw0ssQI=" /></div>
+                <input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OjEruRp24AEXsg3gvTRwNQkZjKUarQqDK1ywtw0ssQI=" />
+            </div>
             <select class="input-medium" id="goto_date_1i" name="goto[date(1i)]">
-                <option value="2007">2007</option>
-                <option value="2008">2008</option>
-                <option value="2009">2009</option>
-                <option value="2010">2010</option>
-                <option value="2011">2011</option>
-                <option value="2012">2012</option>
-                <option selected="selected" value="2013">2013</option>
-                <option value="2014">2014</option>
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
+                <option @if (Model.DisplayMonth.Year == 2007)
+                        {<text>selected="selected" </text>} value="2007">2007</option>
+                <option @if (Model.DisplayMonth.Year == 2008)
+                        {<text>selected="selected" </text>} value="2008">2008</option>
+                <option @if (Model.DisplayMonth.Year == 2009)
+                        {<text>selected="selected" </text>} value="2009">2009</option>
+                <option @if (Model.DisplayMonth.Year == 2010)
+                        {<text>selected="selected" </text>} value="2010">2010</option>
+                <option @if (Model.DisplayMonth.Year == 2011)
+                        {<text>selected="selected" </text>} value="2011">2011</option>
+                <option @if (Model.DisplayMonth.Year == 2012)
+                        {<text>selected="selected" </text>} value="2012">2012</option>
+                <option @if (Model.DisplayMonth.Year == 2013)
+                        {<text>selected="selected" </text>} value="2013">2013</option>
+                <option @if (Model.DisplayMonth.Year == 2014)
+                        {<text>selected="selected" </text>} value="2014">2014</option>
+                <option @if (Model.DisplayMonth.Year == 2015)
+                        {<text>selected="selected" </text>} value="2015">2015</option>
+                <option @if (Model.DisplayMonth.Year == 2016)
+                        {<text>selected="selected" </text>} value="2016">2016</option>
             </select>
             <select class="input-medium" id="goto_date_2i" name="goto[date(2i)]">
-                <option value="1">January</option>
-                <option value="2">February</option>
-                <option value="3">March</option>
-                <option selected="selected" value="4">April</option>
-                <option value="5">May</option>
-                <option value="6">June</option>
-                <option value="7">July</option>
-                <option value="8">August</option>
-                <option value="9">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
+                <option @if (Model.DisplayMonth.Month == 1)
+                        {<text>selected="selected" </text>} value="1">January</option>
+                <option @if (Model.DisplayMonth.Month == 2)
+                        {<text>selected="selected" </text>} value="2">February</option>
+                <option @if (Model.DisplayMonth.Month == 3)
+                        {<text>selected="selected" </text>} value="3">March</option>
+                <option @if (Model.DisplayMonth.Month == 4)
+                        {<text>selected="selected" </text>} value="4">April</option>
+                <option @if (Model.DisplayMonth.Month == 5)
+                        {<text>selected="selected" </text>} value="5">May</option>
+                <option @if (Model.DisplayMonth.Month == 6)
+                        {<text>selected="selected" </text>} value="6">June</option>
+                <option @if (Model.DisplayMonth.Month == 7)
+                        {<text>selected="selected" </text>} value="7">July</option>
+                <option @if (Model.DisplayMonth.Month == 8)
+                        {<text>selected="selected" </text>} value="8">August</option>
+                <option @if (Model.DisplayMonth.Month == 9)
+                        {<text>selected="selected" </text>} value="9">September</option>
+                <option @if (Model.DisplayMonth.Month == 10)
+                        {<text>selected="selected" </text>} value="10">October</option>
+                <option @if (Model.DisplayMonth.Month == 11)
+                        {<text>selected="selected" </text>} value="11">November</option>
+                <option @if (Model.DisplayMonth.Month == 12)
+                        {<text>selected="selected" </text>} value="12">December</option>
             </select>
             <input id="goto_date_3i" name="goto[date(3i)]" type="hidden" value="1" />
             <input class="btn" name="commit" type="submit" value="Go" />
@@ -52,229 +75,46 @@
         <div class="calcel month">Friday</div>
         <div class="calcel month">Saturday</div>
     </div>
-    <div class="row-fluid week">
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-11-25+12%3A00+pm">31</a></div>
-                <div class="clearfix"></div>
-            </div>
+    @{
+        DateTime first = Model.DisplayMonth.AddDays(-1 * (int)Model.DisplayMonth.DayOfWeek);
+        for (int week = 0; week < 6; ++week)
+        {
+        <div class="row-fluid week">
+            @for (int day = 0; day < 7; ++day)
+            {
+                DateTime thisDay = first.AddDays(week * 7 + day);
+                <div class="calcel">
+                    <div>
+                        <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-11-25+12%3A00+pm">@thisDay.Day</a></div>
+                        <div class="clearfix"></div>
+                    </div>
+                    @{
+                        foreach (var item in (from i in Model.Items
+                                    where i.Due >= thisDay && i.Due < thisDay.AddDays(1) select i))
+                                    {
+                            string buttonType;
+                            if (item is Ludus.Models.PersonalItem)
+                            {
+                                buttonType = "btn-info";
+                            }
+                            else
+                            {
+                                buttonType = "btn-success";
+                            }
+            <a class="btn @buttonType event" href="/plan/events/65263/menu" data-remote="true" style="color: white;">@item.Description</a>
+                                    }
+                                    }
+                </div>
+            }
+        </div>
+        if (first.AddDays(((week + 1) * 7) + 1).Month > Model.DisplayMonth.Month)
+          {
+              break;
+          }
+        }
+    }
+    @*
             <a class="btn btn-info event" href="/plan/events/65263/menu" data-remote="true" style="color: white;">Committee Meeting: 03:00 pm</a>
             <a class="btn btn-warning event" href="/plan/events/65263/menu" data-remote="true" style="color: white;">COP 4510 - HW9</a>
-        </div>
-        <div class="calcel">
-            <div>
-                <a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-11-26+12%3A00+pm">1</a>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a  class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-11-27+12%3A00+pm">2</a></div>
-                <div class="clearfix"></div>
-            </div>
-            <a class="btn btn-danger event" href="/plan/events/70801/menu" data-remote="true" style="color: white;">Readyman Badge: 06:00 pm</a></li>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a  class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-11-28+12%3A00+pm">3</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a  class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-11-29+12%3A00+pm">4</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a  class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-11-30+12%3A00+pm">5</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a  class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-01+12%3A00+pm">6</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-    <div class="row-fluid week">
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a  class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-02+12%3A00+pm">7</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a  class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-03+12%3A00+pm">8</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-04+12%3A00+pm">9</a></div>
-                <div class="clearfix"></div>
-            </div>
-            <a class="btn btn-success event" href="/plan/events/65257/menu" data-remote="true" style="color: white;">Pack Meeting: 07:00 pm</a>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-05+12%3A00+pm">10</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-06+12%3A00+pm">11</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-07+12%3A00+pm">12</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-08+12%3A00+pm">13</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-    <div class="row-fluid week">
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-09+12%3A00+pm">14</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-10+12%3A00+pm">15</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-11+12%3A00+pm">16</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-12+12%3A00+pm">17</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-13+12%3A00+pm">18</a></div>
-                <div class="clearfix"></div>
-            </div>
-            <a class="btn btn-warning event" href="/plan/events/70416/menu" data-remote="true" style="color: white;">Roundtable: 07:00 pm</a>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-14+12%3A00+pm">19</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-15+12%3A00+pm">20</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-    <div class="row-fluid week">
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-16+12%3A00+pm">21</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-17+12%3A00+pm">22</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-18+12%3A00+pm">23</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-19+12%3A00+pm">24</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-20+12%3A00+pm">25</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-21+12%3A00+pm">26</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel today">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-22+12%3A00+pm">27</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-    <div class="row-fluid week">
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-23+12%3A00+pm">28</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-24+12%3A00+pm">29</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div class="holiday">
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-25+12%3A00+pm">30</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-26+12%3A00+pm">01</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-27+12%3A00+pm">02</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-28+12%3A00+pm">03</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="calcel">
-            <div>
-                <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-12-29+12%3A00+pm">04</a></div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
+    *@
 </div>

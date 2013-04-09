@@ -32,5 +32,13 @@ namespace Ludus.DataServices
             }
             return returnValue;
         }
+        // By convention - Get methods return collections of objects, find methods return single objects. 
+        public Calendar Find(int userId, DateTime month)
+        {
+            // The Calendar object is a collection of CalendarBase objects
+            Calendar returnValue = Find(userId);
+            returnValue.DisplayMonth = month;
+            return returnValue;
+        }
     }
 }

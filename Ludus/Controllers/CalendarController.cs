@@ -19,11 +19,11 @@
         public ActionResult Index()
         {
             ViewBag.Label = "View Personal Items";
-            return View(cs.Find(WebSecurity.CurrentUserId));
+            return View(cs.Find(WebSecurity.CurrentUserId, new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)));
         }
         public ActionResult DayView()
         {
-            return View(cs.Find(WebSecurity.CurrentUserId));
+            return View(cs.Find(WebSecurity.CurrentUserId, new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)));
         }
 
         protected override void Dispose(bool disposing)
