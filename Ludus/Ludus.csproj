@@ -190,6 +190,7 @@
     <Compile Include="DataServices\CourseService.cs" />
     <Compile Include="DataServices\EnrollmentService.cs" />
     <Compile Include="DataServices\FacultyService.cs" />
+    <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="DataServices\SessionService.cs" />
     <Compile Include="DataServices\SectionService.cs" />
     <Compile Include="DataServices\StudentService.cs" />
@@ -406,6 +407,10 @@
     <Content Include="Views\Faculty\Delete.cshtml" />
     <Content Include="Views\Faculty\Edit.cshtml" />
     <Content Include="Views\Faculty\Index.cshtml" />
+    <Content Include="Views\Section\Create.cshtml" />
+    <Content Include="Views\Section\Delete.cshtml" />
+    <Content Include="Views\Section\Edit.cshtml" />
+    <Content Include="Views\Section\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,8 +16,14 @@ namespace Ludus.Models
 
         [Key]
         public int Id { get; set; }
+
+        [Display(Name = "Course Number"), Required]
         public string Number { get; set; }
+
+        [Display(Name = "Course Name"), Required]
         public string Name { get; set; }
+
+        [Display(Name = "Active")]
         public bool Active { get; set; }
     
         public virtual ICollection<CourseAwardLink> CourseAwardLinks { get; set; }
