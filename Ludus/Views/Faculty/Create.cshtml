@@ -16,13 +16,13 @@
             @Html.LabelFor(model => model.UserProfile.UserName)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("UserList")
+            @Html.DropDownListFor(model => model.UserId, (IEnumerable<SelectListItem>) ViewBag.UserList)
         </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.Session.Name)
         </div>
         <div class="editor-label">
-            @Html.DropDownList("SessionList")
+            @Html.DropDownListFor(model => model.SessionId, (IEnumerable<SelectListItem>) ViewBag.SessionList)
         </div>
         <div class="editor-field">
 

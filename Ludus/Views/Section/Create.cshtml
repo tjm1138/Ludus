@@ -1,4 +1,4 @@
-﻿@model Ludus.Models.Student
+﻿@model Ludus.Models.Section
 
 @{
     ViewBag.Title = "Create";
@@ -10,24 +10,41 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Student</legend>
+        <legend>Section</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UserProfile.UserName)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("UserList")
-        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.Session.Name)
         </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.SessionId, (IEnumerable<SelectListItem>) ViewBag.SessionList)
+        </div>
         <div class="editor-label">
-            @Html.DropDownList("SessionList")
+            @Html.LabelFor(model => model.Course.Name)
         </div>
         <div class="editor-field">
-
+            @Html.DropDownListFor(model => model.CourseId, (IEnumerable<SelectListItem>) ViewBag.CourseList)
         </div>
-
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Number)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Number)
+            @Html.ValidationMessageFor(model => model.Number)
+        </div>
+                <div class="editor-label">
+            @Html.LabelFor(model => model.Limit)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Limit)
+            @Html.ValidationMessageFor(model => model.Limit)
+        </div>        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
         <br />
         <p>
             <input type="submit" value="Create" />

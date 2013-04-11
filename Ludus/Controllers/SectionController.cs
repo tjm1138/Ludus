@@ -27,106 +27,106 @@ namespace Ludus.Controllers
 
         // GET: /Section/Create
 
-        //public ActionResult Create()
-        //{
-        //    // query users to a list
-        //    var userResults = (from u in dc.UserProfiles
-        //                       select u).ToList();
+        public ActionResult Create()
+        {
+            // query users to a list
+            var courseResults = (from c in dc.Courses
+                               select c).ToList();
 
-        //    // query sessions to a list
-        //    var sessionResults = (from s in dc.Sessions
-        //                          select s).ToList();
+            // query sessions to a list
+            var sessionResults = (from s in dc.Sessions
+                                  select s).ToList();
 
-        //    // populate user list to drop down menu
-        //    IEnumerable<SelectListItem> users;
-        //    users = userResults.Select(a => new SelectListItem
-        //    {
-        //        Value = a.UserId.ToString(),
-        //        Text = a.UserName
-        //    });
+            // populate user list to drop down menu
+            IEnumerable<SelectListItem> courses;
+            courses = courseResults.Select(a => new SelectListItem
+            {
+                Value = a.Id.ToString(),
+                Text = a.Name
+            });
 
-        //    // populate session list to drop down menu
-        //    IEnumerable<SelectListItem> sessions;
-        //    sessions = sessionResults.Select(a => new SelectListItem
-        //    {
-        //        Value = a.Id.ToString(),
-        //        Text = a.Name
-        //    });
+            // populate session list to drop down menu
+            IEnumerable<SelectListItem> sessions;
+            sessions = sessionResults.Select(a => new SelectListItem
+            {
+                Value = a.Id.ToString(),
+                Text = a.Name
+            });
 
-        //    ViewBag.UserList = users;       // set user list to ViewBag
-        //    ViewBag.SessionList = sessions; // set session list to View Bag
-        //    return View();
+            ViewBag.CourseList = courses;       // set course list to ViewBag
+            ViewBag.SessionList = sessions; // set session list to View Bag
+            return View();
 
-        //}
+        }
 
-        //// POST: /Section/Create
+        // POST: /Section/Create
 
-        //[HttpPost]
-        //public ActionResult Create(Section section)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        ds.Create(section);
-        //        return RedirectToAction("Index");
-        //    }
+        [HttpPost]
+        public ActionResult Create(Section section)
+        {
+            if (ModelState.IsValid)
+            {
+                ds.Create(section);
+                return RedirectToAction("Index");
+            }
 
-        //    return View(section);
-        //}
+            return View(section);
+        }
 
-        //// GET: /Section/Edit/5
+        // GET: /Section/Edit/5
 
-        //public ActionResult Edit(int id = 0)
-        //{
-        //    Section Section = ds.Find(id);
-        //    if (Section == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
+        public ActionResult Edit(int id = 0)
+        {
+            Section Section = ds.Find(id);
+            if (Section == null)
+            {
+                return HttpNotFound();
+            }
 
-        //    // query users to a list
-        //    var userResults = (from u in dc.UserProfiles
-        //                       select u).ToList();
+            // query users to a list
+            var courseResults = (from c in dc.Courses
+                               select c).ToList();
 
-        //    // query sessions to a list
-        //    var sessionResults = (from s in dc.Sessions
-        //                          select s).ToList();
+            // query sessions to a list
+            var sessionResults = (from s in dc.Sessions
+                                  select s).ToList();
 
-        //    // populate user list to drop down menu
-        //    IEnumerable<SelectListItem> users;
-        //    users = userResults.Select(a => new SelectListItem
-        //    {
-        //        Value = a.UserId.ToString(),
-        //        Text = a.UserName
-        //    });
+            // populate user list to drop down menu
+            IEnumerable<SelectListItem> courses;
+            courses = courseResults.Select(a => new SelectListItem
+            {
+                Value = a.Id.ToString(),
+                Text = a.Name
+            });
 
-        //    // populate session list to drop down menu
-        //    IEnumerable<SelectListItem> sessions;
-        //    sessions = sessionResults.Select(a => new SelectListItem
-        //    {
-        //        Value = a.Id.ToString(),
-        //        Text = a.Name
-        //    });
+            // populate session list to drop down menu
+            IEnumerable<SelectListItem> sessions;
+            sessions = sessionResults.Select(a => new SelectListItem
+            {
+                Value = a.Id.ToString(),
+                Text = a.Name
+            });
 
-        //    var model = new Section();
-        //    model.UserId = id;
-        //    ViewBag.SessionId = new SelectList(sessions, "Value", "Text", Section.SessionId);
-        //    ViewBag.UserList = users;       // set user list to ViewBag
-        //    ViewBag.SessionList = sessions; // set session list to View Bag
-        //    return View(model);
-        //}
+            var model = new Section();
+            model.Id = id;
+            //ViewBag.SessionId = new SelectList(sessions, "Value", "Text", Section.SessionId);
+            ViewBag.CourseList = courses;       // set user list to ViewBag
+            ViewBag.SessionList = sessions; // set session list to View Bag
+            return View(model);
+        }
 
-        //// POST: /Section/Edit/5
+        // POST: /Section/Edit/5
 
-        //[HttpPost]
-        //public ActionResult Edit(Section section)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        ds.Update(section);
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(section);
-        //}
+        [HttpPost]
+        public ActionResult Edit(Section section)
+        {
+            if (ModelState.IsValid)
+            {
+                ds.Update(section);
+                return RedirectToAction("Index");
+            }
+            return View(section);
+        }
 
         // GET: /Section/Delete/5
 

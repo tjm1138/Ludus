@@ -76,7 +76,7 @@ namespace Ludus.Controllers
 
         // GET: /Student/Edit/5
 
-        public ActionResult Edit(int id = 0)
+        public ActionResult Edit(int id)
         {
             Student student = ds.Find(id);
             if (student == null)
