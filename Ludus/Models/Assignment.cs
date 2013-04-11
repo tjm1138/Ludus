@@ -12,9 +12,16 @@ namespace Ludus.Models
             this.Submissions = new HashSet<Submission>();
         }
 
+        [Display(Name = "Section Id"), Required]
         public int SectionId { get; set; }
+
+        [Display(Name = "Submission Limit"), Required]
         public int SubmissionLimit { get; set; }
+
+        [Display(Name = "Maximum Grade"), Required]
         public int MaximumGrade { get; set; }
+
+        [Display(Name = "Active")]
         public bool Active { get; set; }
     
         public virtual Section Section { get; set; }

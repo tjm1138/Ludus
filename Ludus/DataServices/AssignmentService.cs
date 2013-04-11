@@ -3,9 +3,9 @@
 //	join course on course.Id = section.CourseId
 //where Assignment.SectionId in (select SectionId
 //	from Enrollment
-//	join Student on Student.id = Enrollment.StudentId
-//	where Student.UserId = 5
-//	and Student.SessionId = 1
+//	join Assignment on Assignment.id = Enrollment.AssignmentId
+//	where Assignment.UserId = 5
+//	and Assignment.SessionId = 1
 //)
 namespace Ludus.DataServices
 {
@@ -45,6 +45,40 @@ namespace Ludus.DataServices
             }
             return returnValue;
         }
+
+        public ICollection<Assignment> DisplayAssignments()
+        {
+            ICollection<Assignment> returnValue;
+            returnValue = (from s in dc.Assignments
+                           select s).ToList();
+            return returnValue;
+        }
+
+        public Assignment Find(int id)
+        {
+            return dc.Assignments.Find(id);
+        }
+
+        public void Remove(int id)
+        {
+            Assignment assignment = Find(id);
+            dc.Assignments.Remove(assignment);
+            dc.SaveChanges();
+        }
+
+        public void Create(Assignment assignment)
+        {
+            dc.Assignments.Add(assignment);
+            dc.SaveChanges();
+        }
+
+        public void Update(Assignment assignment)
+        {
+
+            dc.Entry(assignment).State = EntityState.Modified;
+            dc.SaveChanges();
+        }
+
         public void Dispose()
         {
             dc.Dispose();

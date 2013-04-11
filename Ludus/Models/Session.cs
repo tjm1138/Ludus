@@ -25,7 +25,6 @@ namespace Ludus.Models
         public System.DateTime EndDate { get; set; }
 
         [Display(Name = "Active Session")]
-        [Required]
         public bool Active { get; set; }
 
         [Display(Name = "Session Name")]
