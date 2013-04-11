@@ -178,6 +178,7 @@
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\BadgesController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\FacultyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonalItemController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="DataServices\BadgesService.cs" />
     <Compile Include="DataServices\CourseService.cs" />
     <Compile Include="DataServices\EnrollmentService.cs" />
+    <Compile Include="DataServices\FacultyService.cs" />
     <Compile Include="DataServices\SessionService.cs" />
     <Compile Include="DataServices\SectionService.cs" />
     <Compile Include="DataServices\StudentService.cs" />
@@ -400,6 +402,10 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Profile\index.cshtml" />
+    <Content Include="Views\Faculty\Create.cshtml" />
+    <Content Include="Views\Faculty\Delete.cshtml" />
+    <Content Include="Views\Faculty\Edit.cshtml" />
+    <Content Include="Views\Faculty\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Ludus.Models.Faculty>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Faculty</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserProfile.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserProfile.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserProfile.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Session.Name)
+        </th>
+        <th></th>
+    </tr>
+  
+@foreach (var faculty in Model) {
+    <tr>
+        <td>@faculty.UserProfile.UserName</td>
+        <td>@faculty.UserProfile.FirstName</td>
+        <td>@faculty.UserProfile.LastName</td>
+        <td>@faculty.Session.Name</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=faculty.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=faculty.Id })
+        </td>
+    </tr>
+}
+
+</table>
