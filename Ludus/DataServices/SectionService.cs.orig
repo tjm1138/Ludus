@@ -11,7 +11,21 @@
         private Ludus.Models.DataContext dc = new Ludus.Models.DataContext();
         public Section Find(int id)
         {
-            return dc.Sections.Find(id);
+<<<<<<< HEAD
+            return dc.Sections.Find(Id);
+            //Section returnValue = (from s in dc.Sections
+            //                       where s.Id == Id
+            //                       select s).FirstOrDefault();
+            //using (CourseService svc = new CourseService())
+            //{
+            //    returnValue.Course = svc.Find(returnValue.CourseId);
+            //}
+            //return returnValue;
+=======
+            Section returnValue = (from s in dc.Sections
+                                  where s.Id == id
+                                  select s).FirstOrDefault();
+            return returnValue;
         }
 
         public void Remove(int id)
@@ -39,6 +53,7 @@
             returnValue = (from sess in dc.Sections
                            select sess).ToList();
             return returnValue;
+>>>>>>> 4f5146b4f6c8ec4dc618e22e9c2596e887302966
         }
 
         public void Dispose()

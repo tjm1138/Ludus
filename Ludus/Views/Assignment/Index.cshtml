@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Ludus.Models.Assignment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Assignments</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SectionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Due)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubmissionLimit)
+        </th>
+                <th>
+            @Html.DisplayNameFor(model => model.MaximumGrade)
+        </th>
+                <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th></th>
+    </tr>
+  
+@foreach (var assignment in Model) {
+    <tr>
+        <td>@assignment.SectionId</td>
+        <td>@assignment.Description</td>
+        <td>@assignment.Notes</td>
+        <td>@assignment.Due</td>
+        <td>@assignment.SubmissionLimit</td>
+        <td>@assignment.MaximumGrade</td>
+        <td>@assignment.Active</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=assignment.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=assignment.Id })
+        </td>
+    </tr>
+}
+
+</table>

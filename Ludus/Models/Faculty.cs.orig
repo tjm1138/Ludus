@@ -15,9 +15,14 @@ namespace Ludus.Models
 
         [Display(Name = "Session Id"), Required]
         public int SessionId { get; set; }
+<<<<<<< HEAD
+
         [ForeignKey("SessionId")]
         public virtual Session Session { get; set; }
         [ForeignKey("UserId")]
+=======
+        public virtual Session Session { get; set; }
+>>>>>>> 4f5146b4f6c8ec4dc618e22e9c2596e887302966
         public virtual UserProfile UserProfile { get; set; }
     }
 }

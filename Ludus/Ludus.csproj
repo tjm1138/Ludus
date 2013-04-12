@@ -175,9 +175,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssignmentController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\BadgesController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\FacultyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonalItemController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -188,6 +190,8 @@
     <Compile Include="DataServices\BadgesService.cs" />
     <Compile Include="DataServices\CourseService.cs" />
     <Compile Include="DataServices\EnrollmentService.cs" />
+    <Compile Include="DataServices\FacultyService.cs" />
+    <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="DataServices\SessionService.cs" />
     <Compile Include="DataServices\SectionService.cs" />
     <Compile Include="DataServices\StudentService.cs" />
@@ -399,6 +403,18 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Profile\index.cshtml" />
+    <Content Include="Views\Faculty\Create.cshtml" />
+    <Content Include="Views\Faculty\Delete.cshtml" />
+    <Content Include="Views\Faculty\Edit.cshtml" />
+    <Content Include="Views\Faculty\Index.cshtml" />
+    <Content Include="Views\Section\Create.cshtml" />
+    <Content Include="Views\Section\Delete.cshtml" />
+    <Content Include="Views\Section\Edit.cshtml" />
+    <Content Include="Views\Section\Index.cshtml" />
+    <Content Include="Views\Assignment\Index.cshtml" />
+    <Content Include="Views\Assignment\Delete.cshtml" />
+    <Content Include="Views\Assignment\Edit.cshtml" />
+    <Content Include="Views\Assignment\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,36 +1,38 @@
-﻿@model Ludus.Models.Student
+﻿@model Ludus.Models.Faculty
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Create</h2>
+<h2>Edit</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Student</legend>
+        <legend>Faculty</legend>
+
+        @Html.HiddenFor(model => model.Id)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserProfile.UserName)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.UserId, (IEnumerable<SelectListItem>) ViewBag.UserList)
+           @Html.DropDownListFor(model => model.UserId, (IEnumerable<SelectListItem>) ViewBag.UserList)
         </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.Session.Name)
         </div>
         <div class="editor-label">
-            @Html.DropDownListFor(model => model.SessionId, (IEnumerable<SelectListItem>) ViewBag.SessionList)
-        </div>
+             @Html.DropDownListFor(model => model.SessionId, (IEnumerable<SelectListItem>) ViewBag.SessionList)
+       </div>
         <div class="editor-field">
 
         </div>
 
         <br />
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" class="btn btn-success" value="Save" />
         </p>
     </fieldset>
 }

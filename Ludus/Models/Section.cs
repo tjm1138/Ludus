@@ -17,10 +17,20 @@ namespace Ludus.Models
 
         [Key]
         public int Id { get; set; }
+
+        [Display(Name = "Session Id"), Required]
         public int SessionId { get; set; }
+        
+        [Display(Name = "Course Id"), Required]
         public int CourseId { get; set; }
+
+        [Display(Name = "Section Number"), Required]
         public string Number { get; set; }
+
+        [Display(Name = "Student Limit"), Required]
         public int Limit { get; set; }
+
+        [Display(Name = "Description"), Required]
         public string Description { get; set; }
     
         public virtual ICollection<Assignment> Assignments { get; set; }
