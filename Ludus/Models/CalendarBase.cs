@@ -16,11 +16,11 @@ namespace Ludus.Models
     {
         public int Id { get; set; }
         // The date the item is due. 
-        [Display(Name = "Due"), Required, DataType(DataType.DateTime)]
+        [Display(Name = "Due Date"), Required, DataType(DataType.DateTime)]
         public System.DateTime Due { get; set; }
 
         // A short (<256 character) description
-        [Display(Name = "Description"), Required, StringLength(255), DataType(DataType.MultilineText)]
+        [Display(Name = "Assignment Description"), Required, StringLength(255), DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         // A longer amount of information

@@ -7,7 +7,7 @@
 <h2>Assignments</h2>
 
 <p>
-    @*@Html.ActionLink("Create New", "Create")*@
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table table-bordered">
     <tr>
@@ -45,7 +45,7 @@
         <td>@assignment.MaximumGrade</td>
         <td>@assignment.Active</td>
         <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id=assignment.Id }) |*@
+            @Html.ActionLink("Edit", "Edit", new { id=assignment.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=assignment.Id })
         </td>
     </tr>
