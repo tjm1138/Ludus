@@ -14,7 +14,8 @@ namespace Ludus.Models
         public Nullable<System.DateTime> TimeBegin { get; set; }
         public Nullable<System.DateTime> TimeEnd { get; set; }
         public int Points { get; set; }
-    
+
+        [ForeignKey("SectionId")]
         public virtual Section Section { get; set; }
     }
 }

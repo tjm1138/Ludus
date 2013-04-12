@@ -369,7 +369,6 @@
     <Content Include="Views\PersonalItem\Edit.cshtml" />
     <Content Include="Views\PersonalItem\Delete.cshtml" />
     <Content Include="Views\Home\_ListPartial.cshtml" />
-    <Content Include="Views\Home\_CalendarDayPartial.cshtml" />
     <Content Include="Views\Session\Create.cshtml">
       <SubType>Code</SubType>
     </Content>

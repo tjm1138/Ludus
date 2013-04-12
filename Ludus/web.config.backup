@@ -22,8 +22,6 @@
     <add key="PreserveLoginUrl" value="true" />
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="microsoft.visualstudio.teamsystems.aspnetdevserver:/" value="18569;True;7944;1;-8588359585952219731" />
-    <add key="microsoft.visualstudio.teamsystems.backupinfo" value="2;web.config.backup" />
   </appSettings>
   <system.web>
     <compilation debug="true" targetFramework="4.5">

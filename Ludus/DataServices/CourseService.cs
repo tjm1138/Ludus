@@ -19,10 +19,9 @@
         }
         public Course Find(int id)
         {
-            Course returnValue = (from s in dc.Courses
-                                   where s.Id == id
-                                   select s).FirstOrDefault();
-            return returnValue;        }
+            return dc.Courses.Find(id);
+            
+        }
         public void Remove(int id)
         {
             Course Course = Find(id);

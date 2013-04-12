@@ -17,8 +17,10 @@ namespace Ludus.Models
         public string SubmitterComments { get; set; }
         public string ScorerComments { get; set; }
         public Nullable<System.DateTime> SubmissionDate { get; set; }
-    
+
+        [ForeignKey("AssignmentId")]
         public virtual Assignment Assignment { get; set; }
+        [ForeignKey("EnrollmentId")]
         public virtual Enrollment Enrollment { get; set; }
     }
 }

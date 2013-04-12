@@ -25,11 +25,7 @@ namespace Ludus.DataServices
         // Matches the userID to a profile
         public UserProfile Find(int userId)
         {
-            UserProfile returnValue;
-            returnValue = (from profile in dc.UserProfiles
-                           where (profile.UserId == userId)
-                           select profile).FirstOrDefault();
-            return returnValue;
+            return dc.UserProfiles.Find(userId);
         }
 
         // Takes in the user's email address.

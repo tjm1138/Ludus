@@ -19,9 +19,10 @@ namespace Ludus.Models
 
         [Display(Name = "Section"), Required]
         public int SectionId { get; set; }
-        [Display(Name = "Teh Name"), StringLength(1000), DataType(DataType.MultilineText), Required]
+        [Display(Name = "The Name"), StringLength(1000), DataType(DataType.MultilineText), Required]
         public string Name { get; set; }
-    
+
+        [ForeignKey("SectionId")]
         public virtual Section Section { get; set; }
         public virtual ICollection<StudentBadgeLink> StudentBadgeLinks { get; set; }
     }

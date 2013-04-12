@@ -46,7 +46,7 @@ namespace Ludus.Controllers
         [HttpPost]
         public ActionResult Index(Calendar calendar)
         {
-            if (Session["IndexView"] == "Month")
+            if ((string) Session["IndexView"] == "Month")
                 Session["IndexView"] = "List";
             else
                 Session["IndexView"] = "Month";

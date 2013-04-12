@@ -12,8 +12,10 @@ namespace Ludus.Models
         public int CourseId { get; set; }
         public int AwardId { get; set; }
         public System.DateTime Occurred { get; set; }
-    
+
+        [ForeignKey("AwardId")]
         public virtual Award Award { get; set; }
+        [ForeignKey("CourseId")]
         public virtual Course Course { get; set; }
     }
 }

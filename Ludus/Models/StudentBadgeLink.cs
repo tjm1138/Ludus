@@ -12,8 +12,10 @@ namespace Ludus.Models
         public int BadgeId { get; set; }
         public int StudentId { get; set; }
         public System.DateTime AwardDate { get; set; }
-    
+
+        [ForeignKey("BadgeId")]
         public virtual Badge Badge { get; set; }
+        [ForeignKey("StudentId")]
         public virtual Student Student { get; set; }
     }
 }

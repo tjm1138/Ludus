@@ -16,7 +16,8 @@ namespace Ludus.Models
         public int SubmissionLimit { get; set; }
         public int MaximumGrade { get; set; }
         public bool Active { get; set; }
-    
+
+        [ForeignKey("SectionId")]
         public virtual Section Section { get; set; }
         public virtual ICollection<Submission> Submissions { get; set; }
     }

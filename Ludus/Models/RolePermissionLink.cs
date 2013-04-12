@@ -11,7 +11,8 @@ namespace Ludus.Models
         public int Id { get; set; }
         public Nullable<int> webpages_RolesId { get; set; }
         public Nullable<int> PermissionId { get; set; }
-    
+
+        [ForeignKey("PermissionId")]
         public virtual Permission Permission { get; set; }
     }
 }

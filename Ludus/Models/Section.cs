@@ -25,9 +25,11 @@ namespace Ludus.Models
     
         public virtual ICollection<Assignment> Assignments { get; set; }
         public virtual ICollection<Badge> Badges { get; set; }
+        [ForeignKey("CourseId")]
         public virtual Course Course { get; set; }
         public virtual ICollection<Enrollment> Enrollments { get; set; }
         public virtual ICollection<Quiz> Quizs { get; set; }
+        [ForeignKey("SessionId")]
         public virtual Session Session { get; set; }
     }
 }

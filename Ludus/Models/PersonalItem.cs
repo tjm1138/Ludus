@@ -22,5 +22,8 @@ namespace Ludus.Models
         // A flag if the item can be marked complete
         [Display(Name = "Complete"), Required]
         public bool Complete { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual UserProfile UserProfile { get; set; }
     }
 }

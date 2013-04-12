@@ -11,14 +11,15 @@
         private Ludus.Models.DataContext dc = new Ludus.Models.DataContext();
         public Section Find(int Id)
         {
-            Section returnValue = (from s in dc.Sections
-                                   where s.Id == Id
-                                   select s).FirstOrDefault();
-            using (CourseService svc = new CourseService())
-            {
-                returnValue.Course = svc.Find(returnValue.CourseId);
-            }
-            return returnValue;
+            return dc.Sections.Find(Id);
+            //Section returnValue = (from s in dc.Sections
+            //                       where s.Id == Id
+            //                       select s).FirstOrDefault();
+            //using (CourseService svc = new CourseService())
+            //{
+            //    returnValue.Course = svc.Find(returnValue.CourseId);
+            //}
+            //return returnValue;
         }
 
         public void Dispose()

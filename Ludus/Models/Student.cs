@@ -25,7 +25,9 @@ namespace Ludus.Models
         public int SessionId { get; set; }
 
         public virtual ICollection<Enrollment> Enrollments { get; set; }
+        [ForeignKey("SessionId")]
         public virtual Session Session { get; set; }
+        [ForeignKey("UserId")]
         public virtual UserProfile UserProfile { get; set; }
         public virtual ICollection<StudentBadgeLink> StudentBadgeLinks { get; set; }
     }

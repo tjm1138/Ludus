@@ -27,23 +27,18 @@ namespace Ludus.DataServices
             if (sectionIds.Count() > 0)
             {
                 returnValue = (from a in dc.Assignments
-                               join sec in dc.Sections on a.SectionId equals sec.Id
-                               join crs in dc.Courses on sec.CourseId equals crs.Id
-                               where sectionIds.Contains(sec.Id)
+                               where sectionIds.Contains(a.SectionId)
                                select a).ToList();
             }
             else
             {
                 returnValue = new List<Assignment>();
             }
-            using (var svc = new SectionService())
-            {
-                foreach (var item in returnValue)
-                {
-                    item.Section = svc.Find(item.SectionId);
-                }
-            }
             return returnValue;
+        }
+        public Assignment Find(int id)
+        {
+            return dc.Assignments.Find(id);
         }
         public void Dispose()
         {

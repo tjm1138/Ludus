@@ -11,7 +11,10 @@ namespace Ludus.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public int SessionId { get; set; }
-    
+
+        [ForeignKey("SessionId")]
         public virtual Session Session { get; set; }
+        [ForeignKey("UserId")]
+        public virtual UserProfile UserProfile { get; set; }
     }
 }

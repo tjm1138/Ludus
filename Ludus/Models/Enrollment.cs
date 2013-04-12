@@ -18,8 +18,10 @@ namespace Ludus.Models
         public int SectionId { get; set; }
         public int Grade { get; set; }
         public bool Active { get; set; }
-    
+
+        [ForeignKey("SectionId")]
         public virtual Section Section { get; set; }
+        [ForeignKey("StudentId")]
         public virtual Student Student { get; set; }
         public virtual ICollection<Submission> Submissions { get; set; }
     }

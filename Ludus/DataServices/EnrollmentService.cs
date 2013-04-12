@@ -13,10 +13,8 @@
         public ICollection<Enrollment> Get(int UserId)
         {
             var enrollments = (from enr in dc.Enrollments
-                              join stu in dc.Students on enr.StudentId equals stu.Id
-                              join sec in dc.Sections on enr.SectionId equals sec.Id
-                              join ses in dc.Sessions on sec.SessionId equals ses.Id
-                              where stu.UserId == UserId && ses.Active == true
+                               where enr.Student.UserId == UserId 
+                               && enr.Section.Session.Active == true
                               select enr).ToList();
             using (SectionService svc = new SectionService())
             {
@@ -29,10 +27,7 @@
         }
         public Enrollment Find(int Id)
         {
-            Enrollment returnValue = (from e in dc.Enrollments
-                                  where e.Id == Id
-                                  select e).FirstOrDefault();
-            return returnValue;
+            return dc.Enrollments.Find(Id);
         }
 
 
