@@ -13,7 +13,7 @@ namespace Ludus.Tests.DataServices
         public void RetrieveItem()
         {
             // Arrange
-            AssignmentService service = new AssignmentService();
+            PersonalItemService service = new PersonalItemService();
 
             // Act
             var item = service.Find(1);
@@ -22,7 +22,7 @@ namespace Ludus.Tests.DataServices
             Assert.IsNotNull(item);
 
             // Assert
-            Assert.Equals(item.Id, 1);
+            Assert.AreEqual(item.Id, 1);
         }
     }
 }
