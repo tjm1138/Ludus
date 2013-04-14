@@ -21,13 +21,25 @@ namespace Ludus.Controllers
             return View(user);
         }
 
-        // Edit an existing biography
-        public ActionResult Edit(int id = 0)
+        //Edit an existing profile page submission
+        public ActionResult Edit(int id)
         {
             UserProfile profile = ds.Find(id);
             if (profile == null)
             {
                 return HttpNotFound();
+            }
+            return View(profile);
+        }
+
+        //Edit an existing profile
+        [HttpPost]
+        public ActionResult Edit(UserProfile profile)
+        {
+            if (ModelState.IsValid)
+            {
+                ds.Update(profile);
+                return RedirectToAction("index");
             }
             return View(profile);
         }
