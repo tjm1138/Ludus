@@ -18,21 +18,19 @@ namespace Ludus.Controllers
         private DataServices.BadgesService ds = new DataServices.BadgesService();
         private DataContext dc = new DataContext();
 
-        // get Badges
+        //View the badges, but also ensure we have the accurate and correct userID viewing the appropriate badges
         public ActionResult Index()
         {
             ViewBag.Label = "View Badges";
             return View(ds.Get(WebSecurity.CurrentUserId));
         }
-        // GET: /Badge/
-        public ActionResult DayView()
+        // Update the views and get the updated view, once again ensuring accurate security
+        public ActionResult DView()
         {
             return View(ds.Get(WebSecurity.CurrentUserId));
         }
-
-        //
-        // GET: /Badge/Details/5
-
+        
+        //Load the details of specified badge
         public ActionResult Details(int id = 0, bool goHome = false)
         {
             Badge badge = ds.Find(id);
@@ -44,17 +42,15 @@ namespace Ludus.Controllers
             return View(badge);
         }
 
-        //
-        // GET: /Badge/Create
-
+        // Load the view that will go to create a badge page
         public ActionResult Create()
         {
             return View();
         }
 
-        //
-        // POST: /Badge/Create
-
+ 
+        //Create a badge and return to the primary index to view it in the list.
+        //Needs to be setup, so only appropriate user can create badges.
         [HttpPost]
         public ActionResult Create(Badge badge)
         {
@@ -68,9 +64,8 @@ namespace Ludus.Controllers
             return View(badge);
         }
 
-        //
-        // GET: /Badge/Edit/5
-
+        //Edit an existing badge page submission
+        //Needs security for appropriate user to edit badges, students shouldnt be able to edit them.
         public ActionResult Edit(int id = 0, bool goHome = false)
         {
             Badge badge = ds.Find(id);
@@ -82,9 +77,8 @@ namespace Ludus.Controllers
             return View(badge);
         }
 
-        //
-        // POST: /Badge/Edit/5
-
+        //Edit an existing badge
+        //Needs security for appropriate user to edit badges, students shouldnt be able to edit them.
         [HttpPost]
         public ActionResult Edit(Badge badge)
         {
@@ -96,9 +90,8 @@ namespace Ludus.Controllers
             return View(badge);
         }
 
-        //
-        // GET: /Badge/Delete/5
-
+        //delete an existing badge
+        //Needs security for appropriate user to delete badges, students shouldnt be able to delete them.
         public ActionResult Delete(int id = 0)
         {
             Badge badge = ds.Find(id);
@@ -109,9 +102,8 @@ namespace Ludus.Controllers
             return View(badge);
         }
 
-        //
-        // POST: /Badge/Delete/5
-
+        //delete an existing badge confirmation
+        //Needs security for appropriate user to delete badges, students shouldnt be able to delete them.
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
