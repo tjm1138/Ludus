@@ -5,26 +5,30 @@ May 31, 2013
 *@
 @model Ludus.Models.Calendar
 @* a link to create new personal items *@
-@Html.ActionLink("Create New Personal Item", "Create", "PersonalItem")
+@Html.ActionLink("Create New Personal Item", "Create", "PersonalItem", new { @class = "btn btn-info", @style = "color:white" })
 @* The list view is an accordion style view *@
 <div class="accordion" id="accordion2">
 @foreach (var item in Model.Items.OrderBy(c=>c.Due)) {
     @* For each item, we must construct the proper accordion values *@
         string id;
+        string itemClass;
         string href;
         if (item is Ludus.Models.PersonalItem)
         {
             id = "collapsep-" + @item.Id;
+            itemClass = "accordian-toggle btn btn-info";
         }
         else
         {
             id = "collapsea-" + @item.Id;
+            itemClass = "accordian-toggle btn btn-success";
         }
         href = "#" + id;
-    <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="@href">
+    <div class="accordion-group" style="border:none">
+    <div class="accordion-heading" style="border:none">
+      <a class="@itemClass" style="color:white; width:100%" data-toggle="collapse" data-parent="#accordion2" href="@href">
          @* If an item is personal, then all the item header says is personal. OTherwise, it shows the course info *@
+        Due: @item.Due
           @if (item is Ludus.Models.PersonalItem)
           {
               <text>Personal </text>
@@ -35,7 +39,7 @@ May 31, 2013
               @aItem.Section.Course.Number
                                                                           }
  - @item.Description           
-        Due: @item.Due     
+       
       </a>
     </div>
     <div id="@id" class="accordion-body collapse">

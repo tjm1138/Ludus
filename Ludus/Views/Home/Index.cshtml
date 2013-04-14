@@ -7,7 +7,7 @@
 using (Html.BeginForm()) {
     if (Session["IndexView"] == "Month")
     {
-    <input type="submit" class="btn btn-success" value="Switch to List View" />@*
+    <input type="submit" class="btn btn-warning" value="Switch to List View" />@*
 @*<div class="container-fluid">
     <div class="row-fluid">
         <div class="span10">*@
@@ -19,7 +19,7 @@ using (Html.BeginForm()) {
     }
     if (Session["IndexView"] == "List")
     {
-    <input type="submit" class="btn btn-success" value="Switch to Month View" />
+    <input type="submit" class="btn btn-warning" value="Switch to Month View" />
 @* include the List view (for now) *@
 @Html.Partial("../Home/_ListPartial")
     }

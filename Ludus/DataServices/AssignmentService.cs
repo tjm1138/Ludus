@@ -72,7 +72,7 @@ namespace Ludus.DataServices
 
         public void Dispose()
         {
-            dc.Dispose();
+   //         dc.Dispose();
         }
     }
 }
