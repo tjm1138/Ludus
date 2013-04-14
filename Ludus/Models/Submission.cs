@@ -1,3 +1,8 @@
+/*
+ * Calendar - A model for the Ass Assignment Submissions
+ * Thomas Moseley
+ * April 14, 2013
+*/
 namespace Ludus.Models
 {
     using System;

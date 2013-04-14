@@ -419,7 +419,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Interfaces\DataServices\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

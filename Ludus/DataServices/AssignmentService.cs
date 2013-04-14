@@ -1,12 +1,10 @@
-﻿//select * from Assignment 
-//	join section on section.id = Assignment.SectionId
-//	join course on course.Id = section.CourseId
-//where Assignment.SectionId in (select SectionId
-//	from Enrollment
-//	join Assignment on Assignment.id = Enrollment.AssignmentId
-//	where Assignment.UserId = 5
-//	and Assignment.SessionId = 1
-//)
+﻿/*
+ * AssignmentServices - Used for Controllers to access data models
+ * Thomas Moseley
+ * Shawn Williams
+ * April 14, 2013
+*/
+
 namespace Ludus.DataServices
 {
     using Ludus.Models;

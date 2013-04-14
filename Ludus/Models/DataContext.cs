@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * DataContext - This class is used for all database accesses
+ * IDataContext is used if we wish to move towards Dependency Injection.
+ * Thomas Moseley
+ * April 14, 2013
+*/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

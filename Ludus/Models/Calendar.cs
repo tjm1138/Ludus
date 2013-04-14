@@ -1,4 +1,9 @@
-﻿namespace Ludus.Models
+﻿/*
+ * Calendar - A model for the execution of Home Page.
+ * Thomas Moseley
+ * April 14, 2013
+*/
+namespace Ludus.Models
 {
     using System;
     using System.Collections.Generic;
