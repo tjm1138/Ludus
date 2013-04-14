@@ -11,18 +11,51 @@
 
     <fieldset>
         <legend>Biography</legend>
-        @Html.HiddenFor(model => model.DisplayName)
-        @Html.HiddenFor(model => model.EmailAddress)
-        @Html.HiddenFor(model => model.FirstName)
-        @Html.HiddenFor(model => model.LastName)
         @Html.HiddenFor(model => model.UserName)
         @Html.HiddenFor(model => model.UserId)
+
+        <h4>Profile Attributes</h4>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DisplayName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DisplayName)
+            @Html.ValidationMessageFor(model => model.DisplayName)
+        </div>
+
         <div class="editor-label">
             @Html.LabelFor(model => model.Biography)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Biography)
             @Html.ValidationMessageFor(model => model.Biography)
+        </div>
+
+        <h4>Contact Information</h4>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailAddress)
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
         </div>
 
         <p>
