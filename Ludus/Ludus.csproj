@@ -192,8 +192,6 @@
     <Compile Include="DataServices\EnrollmentService.cs" />
     <Compile Include="DataServices\FacultyService.cs" />
     <Compile Include="Controllers\SectionController.cs" />
-    <Compile Include="DataServices\IAssignmentService.cs" />
-    <Compile Include="DataServices\ICalendarService.cs" />
     <Compile Include="DataServices\SessionService.cs" />
     <Compile Include="DataServices\SectionService.cs" />
     <Compile Include="DataServices\StudentService.cs" />

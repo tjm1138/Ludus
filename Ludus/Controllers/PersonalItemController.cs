@@ -16,17 +16,11 @@ namespace Ludus.Controllers
     public class PersonalItemController : Controller
     {
         private DataServices.PersonalItemService ds = new DataServices.PersonalItemService();
-        private DataContext dc = new DataContext();
         //
         // GET: /PersonalIItem/
         public ActionResult Index()
         {
             ViewBag.Label = "View Personal Items";
-            return View(ds.Get(WebSecurity.CurrentUserId));
-        }
-        // GET: /PersonalIItem/
-        public ActionResult DayView()
-        {
             return View(ds.Get(WebSecurity.CurrentUserId));
         }
 

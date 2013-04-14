@@ -5,7 +5,7 @@ May 31, 2013
 *@
 @model Ludus.Models.Calendar
 @* a link to create new personal items *@
-@Html.ActionLink("Create New Personal Item", "Create", "PersonalItem", new { @class = "btn btn-info", @style = "color:white" })
+@Html.ActionLink("Create New Personal Item", "Create", "PersonalItem", null, new { @class = "btn btn-info", @style = "color:white" })
 @* The list view is an accordion style view *@
 <div class="accordion" id="accordion2">
 @foreach (var item in Model.Items.OrderBy(c=>c.Due)) {

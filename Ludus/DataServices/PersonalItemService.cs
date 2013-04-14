@@ -27,10 +27,11 @@
             dc.PersonalItems.Remove(item);
             dc.SaveChanges();
         }
-        public void Create(PersonalItem item)
+        public int Create(PersonalItem item)
         {
             dc.PersonalItems.Add(item);
             dc.SaveChanges();
+            return item.Id;
         }
         public void Update(PersonalItem item)
         {

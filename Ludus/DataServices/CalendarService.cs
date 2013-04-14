@@ -12,7 +12,7 @@ namespace Ludus.DataServices
     using System.Linq;
     using System.Web.Security;
     
-    public class CalendarService : Ludus.DataServices.ICalendarService, IDisposable
+    public class CalendarService : IDisposable
     {
         private DataServices.PersonalItemService pi = new DataServices.PersonalItemService();
         private DataServices.AssignmentService a = new DataServices.AssignmentService();

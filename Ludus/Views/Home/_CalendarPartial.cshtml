@@ -1,5 +1,5 @@
 ﻿@model Ludus.Models.Calendar
-@Html.ActionLink("Create New Personal Item", "Create", "PersonalItem", new { @class = "btn btn-info", @style = "color:white" })
+@Html.ActionLink("Create New Personal Item", "Create", "PersonalItem", null, new { @class = "btn btn-info", @style = "color:white" })
 <div class="navbar">
     <div class="navbar-inner">
         <a href="#" class="brand">@String.Format("{0:MMMM yyyy}", Model.DisplayMonth)</a>
@@ -86,7 +86,7 @@
                 DateTime thisDay = first.AddDays(week * 7 + day);
                 <div class="calcel">
                     <div>
-                        <div class="pull-left"><a class="btn" href="/plan/events/new?event%5Bactivity_at%5D=2012-11-25+12%3A00+pm">@thisDay.Day</a></div>
+                        <div class="pull-left"><a class="btn" >@thisDay.Day</a></div>
                         <div class="clearfix"></div>
                     </div>
                     @{
@@ -96,13 +96,12 @@
                             string buttonType;
                             if (item is Ludus.Models.PersonalItem)
                             {
-                                buttonType = "btn-info";
+                                @Html.ActionLink(@item.Description, "Details", "PersonalItem", new { id = item.Id, goHome = true }, new { @class = "btn btn-info event", style = "color:white" })
                             }
                             else
                             {
-                                buttonType = "btn-success";
+                                @Html.ActionLink(@item.Description, "Details", "Assignment", new { id = item.Id, goHome = true }, new { @class = "btn btn-success event", style = "color:white" })
                             }
-            <a class="btn @buttonType event" href="/plan/events/65263/menu" data-remote="true" style="color: white;">@item.Description</a>
                                     }
                                     }
                 </div>

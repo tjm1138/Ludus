@@ -16,7 +16,7 @@ namespace Ludus.DataServices
     using System.Linq;
     using System.Web.Security;
     using WebMatrix.WebData;
-    public class AssignmentService : IDisposable, Ludus.DataServices.IAssignmentService
+    public class AssignmentService : IDisposable
     {       
         private Ludus.Models.DataContext dc = new Ludus.Models.DataContext();
         public ICollection<Assignment> Get(int userId)
