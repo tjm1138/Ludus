@@ -9,7 +9,7 @@ using Ludus.Filters;
 namespace Ludus.Models
 {
     [InitializeSimpleMembership]
-    public class DataContext : DbContext
+    public class DataContext : DbContext, Ludus.Models.IDataContext
     {
         public DataContext()
             : base("DefaultConnection")

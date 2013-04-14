@@ -14,13 +14,10 @@ namespace Ludus.Tests.DataServices
         {
             // Arrange
             PersonalItemService service = new PersonalItemService();
-
             // Act
             var item = service.Find(1);
-
             // Assert
             Assert.IsNotNull(item);
-
             // Assert
             Assert.AreEqual(item.Id, 1);
         }

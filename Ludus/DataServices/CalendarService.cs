@@ -12,7 +12,7 @@ namespace Ludus.DataServices
     using System.Linq;
     using System.Web.Security;
     
-    public class CalendarService 
+    public class CalendarService : Ludus.DataServices.ICalendarService 
     {
         // By convention - Get methods return collections of objects, find methods return single objects. 
         public Calendar Find(int userId)

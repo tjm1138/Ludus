@@ -192,6 +192,8 @@
     <Compile Include="DataServices\EnrollmentService.cs" />
     <Compile Include="DataServices\FacultyService.cs" />
     <Compile Include="Controllers\SectionController.cs" />
+    <Compile Include="DataServices\IAssignmentService.cs" />
+    <Compile Include="DataServices\ICalendarService.cs" />
     <Compile Include="DataServices\SessionService.cs" />
     <Compile Include="DataServices\SectionService.cs" />
     <Compile Include="DataServices\StudentService.cs" />
@@ -207,6 +209,7 @@
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\ExtensionMethods.cs" />
     <Compile Include="Models\Faculty.cs" />
+    <Compile Include="Models\IDataContext.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\PersonalItem.cs">
@@ -418,6 +421,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Interfaces\DataServices\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
