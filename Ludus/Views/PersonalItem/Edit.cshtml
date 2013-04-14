@@ -13,6 +13,7 @@
         <legend>PersonalItem</legend>
 
         @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.UserId)
 
                <div class="editor-label" style="width:200px; float:left;">
             @Html.LabelFor(model => model.Due)
@@ -47,7 +48,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" class="btn btn-success"/>
+            <input type="submit" value="Save Changes" class="btn btn-success"/>
         </p>
     </fieldset>
 }

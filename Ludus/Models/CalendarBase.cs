@@ -20,7 +20,7 @@ namespace Ludus.Models
         public System.DateTime Due { get; set; }
 
         // A short (<256 character) description
-        [Display(Name = "Assignment Description"), Required, StringLength(255), DataType(DataType.MultilineText)]
+        [Display(Name = "Description"), Required, StringLength(255), DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         // A longer amount of information
