@@ -11,7 +11,12 @@
 
     <fieldset>
         <legend>Biography</legend>
-
+        @Html.HiddenFor(model => model.DisplayName)
+        @Html.HiddenFor(model => model.EmailAddress)
+        @Html.HiddenFor(model => model.FirstName)
+        @Html.HiddenFor(model => model.LastName)
+        @Html.HiddenFor(model => model.UserName)
+        @Html.HiddenFor(model => model.UserId)
         <div class="editor-label">
             @Html.LabelFor(model => model.Biography)
         </div>
