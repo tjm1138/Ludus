@@ -3,9 +3,7 @@
     string biography = @Model.Biography;
 }
 
-<hgroup class="title">
-    <h1>@Model.DisplayName</h1>
-</hgroup>
+<h1 class="page-header">@Model.DisplayName</h1>
 
 <div>
 
@@ -24,15 +22,46 @@
             </div>
         </div>
 
+        <h4 class="page-header">
+            <span>Badges Earned</span>
+        </h4>
+
         <div id="badges" class="row">
             <div class="span8 offset2">
-                <span>TODO: Display Adam's badges here, in next implementation stage.</span>
+                <span class="btn">Badge</span>
+                <span class="btn">Another badge</span>
+                <span class="btn">Rockstar</span>
+                <span class="btn">Most likely to be president</span>
+                <span class="btn">Awesome</span>
+                <span class="btn">Crazy cool</span>
+                <span class="btn">Foo</span>
+                <span class="btn">Bar</span>
+                <span class="btn">asdf</span>
+                <span class="btn">Procrastinator</span>
             </div>
         </div>
 
-        <div id="courses">
-            <span id="courseList"></span>
+
+        <h4 class="page-header">
+            <span>Enrolled Courses</span>
+        </h4>
+
+        <div id="course-titles" class="row">
+            <div class="span3 offset2"
+                <span>Course Number</span>
+            </div>
+
+            <div class="span 5">
+                <span>Course Name</span>
+            </div>
+
         </div>
+
+        <div class="course-name row" style="min-height:100px;">
+            
+        </div>
+
+
 
     </div>
 
