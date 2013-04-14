@@ -28,7 +28,7 @@ namespace Ludus.Tests.DataServices
             // Assert
             Assert.IsNotNull(item);
             // Assert
-            Assert.AreEqual(item.Id, 1);
+            Assert.AreEqual(item.UserId, 1);
         }
 
         /* INCOMPLETE
@@ -65,7 +65,7 @@ namespace Ludus.Tests.DataServices
             // Arrange
             UserProfileService service = new UserProfileService();
             // Act
-            var returnedOutput = service.Gravatar('kassycoan@gmail.com');
+            var returnedOutput = service.Gravatar("kassycoan@gmail.com");
             Assert.AreEqual("http://www.gravatar.com/avatar/32cfc1315fecbc04d689b8bcb03d3caf?d=http://ludus.azurewebsites.net/Images/defaultProfile.jpg", returnedOutput);
         }
     }
