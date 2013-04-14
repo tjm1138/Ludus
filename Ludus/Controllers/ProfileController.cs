@@ -20,5 +20,16 @@ namespace Ludus.Controllers
             ViewBag.gravatar = ds.Gravatar(user.EmailAddress);
             return View(user);
         }
+
+        // Edit an existing biography
+        public ActionResult Edit(int id = 0)
+        {
+            UserProfile profile = ds.Find(id);
+            if (profile == null)
+            {
+                return HttpNotFound();
+            }
+            return View(profile);
+        }
     }
 }

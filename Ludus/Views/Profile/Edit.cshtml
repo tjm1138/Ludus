@@ -12,7 +12,7 @@
     <fieldset>
         <legend>Biography</legend>
 
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.UserId)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Biography)
@@ -26,14 +26,6 @@
             <input type="submit" value="Save" />
         </p>
     </fieldset>
-}
-@if (ViewBag.goHome)
-{
-    @Html.ActionLink("Back Home", "Index", "Home")
-}
-else
-{
-    @Html.ActionLink("Back to List", "Index")
 }
 
 @section Scripts {
