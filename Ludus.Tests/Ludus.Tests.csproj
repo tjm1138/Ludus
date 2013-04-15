@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
+    <Compile Include="DataServices\CourseServiceTest.cs" />
     <Compile Include="DataServices\PersonalItemServiceTest.cs" />
     <Compile Include="DataServices\UserProfileServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

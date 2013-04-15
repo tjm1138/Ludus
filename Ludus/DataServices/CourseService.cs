@@ -13,8 +13,8 @@
         public ICollection<Course> DisplayCourses()
         {
             ICollection<Course> returnValue;
-            returnValue = (from pi in dc.Courses
-                           select pi).ToList();
+            returnValue = (from c in dc.Courses
+                           select c).ToList();
             return returnValue;
         }
         public Course Find(int id)
@@ -28,10 +28,11 @@
             dc.Courses.Remove(Course);
             dc.SaveChanges();
         }
-        public void Create(Course Course)
+        public int Create(Course course)
         {
-            dc.Courses.Add(Course);
+            dc.Courses.Add(course);
             dc.SaveChanges();
+            return course.Id;
         }
         public void Update(Course item)
         {
