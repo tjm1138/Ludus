@@ -19,9 +19,7 @@ namespace Ludus.Models
         }
 
         // The section id
-        [Display(Name = "Section Id"), Required]
         public int SectionId { get; set; }
-
         // The submission limit
         [Display(Name = "Submission Limit"), Required]
         public int SubmissionLimit { get; set; }

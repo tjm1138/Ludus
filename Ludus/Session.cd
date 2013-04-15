@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Ludus.Controllers.SessionController">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAACAAAACAAAAAAAAAAAEAAEACAAECAAAAAAA=</HashCode>
+      <FileName>Controllers\SessionController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="dc" />
+      <Field Name="ds" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Ludus.Models.DataContext">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIgAAAAAUAQCAAoACAAAACAAAQQACAAEEAAABAAAAQ=</HashCode>
+      <FileName>Models\DataContext.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Sessions" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Ludus.DataServices.SessionService">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEIAACAAAAAAAAAABAAAAAAIAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataServices\SessionService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="dc" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Ludus.Models.Session">
+    <Position X="3.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQICAAAAAAAAAAAAAAAAAAQgAAAAAAAgAEAAAEAAAAA=</HashCode>
+      <FileName>Models\Session.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Students" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Ludus.Models.Student">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAQAQAAAAAAAAgIAAQAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

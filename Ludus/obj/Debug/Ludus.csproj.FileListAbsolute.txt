@@ -93,7 +93,6 @@ D:\git\Ludus\Ludus\bin\DotNetOpenAuth.OAuth.Consumer.xml
 D:\git\Ludus\Ludus\bin\DotNetOpenAuth.OAuth.xml
 D:\git\Ludus\Ludus\bin\DotNetOpenAuth.OpenId.xml
 D:\git\Ludus\Ludus\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-D:\git\Ludus\Ludus\obj\Debug\Ludus.csprojResolveAssemblyReference.cache
 D:\git\Ludus\Ludus\obj\Debug\Ludus.dll
 D:\git\Ludus\Ludus\obj\Debug\Ludus.pdb
 D:\git\Ludus\Ludus\bin\Microsoft.Web.Mvc.dll
