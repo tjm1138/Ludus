@@ -75,5 +75,19 @@ namespace Ludus.Tests.DataServices
             Assert.AreEqual(item3.Biography, biography);
         }
 
+        /// <summary>
+        /// Searching for an invalid id. Should always return null
+        /// </summary>
+        [TestMethod]
+        public void FindWithErrorID()
+        {
+            // Arrange
+            UserProfileService service = new UserProfileService();
+            // Act
+            var item = service.Find(-1);
+            // Assert
+            Assert.IsNull(item);
+        }
+        
     }
 }
