@@ -1,4 +1,8 @@
-﻿@model Ludus.Models.Course
+﻿@* Course Edit View
+Shawn Williams
+March 31, 2013*@
+
+@model Ludus.Models.Course
 
 @{
     ViewBag.Title = "Edit";
@@ -6,6 +10,7 @@
 
 <h2>Edit</h2>
 
+@* Create form to edit a course *@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
@@ -14,6 +19,7 @@
 
         @Html.HiddenFor(model => model.Id)
 
+        @* Form contains labels, populated data, and validates required fields *@
         <div class="editor-label">
             @Html.LabelFor(model => model.Number)
         </div>
@@ -39,6 +45,7 @@
 
         <br />
         <p>
+            @* Submit button *@
             <input type="submit" value="Save" />
         </p>
     </fieldset>

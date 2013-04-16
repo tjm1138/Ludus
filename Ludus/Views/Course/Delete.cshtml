@@ -1,4 +1,8 @@
-﻿@model Ludus.Models.Course
+﻿@* Course Delete View
+Shawn Williams
+March 31, 2013*@
+
+@model Ludus.Models.Course
 
 @{
     ViewBag.Title = "Delete";
@@ -6,17 +10,20 @@
 
 <h2>Delete</h2>
 
+@* Confirmation message *@
 <h3>Are you sure you want to delete this?</h3>
+
+@* Create table to display course and corresponding headers *@
 <table class="table table-bordered">
     <tr>
         <th>
-            Course Number
+            @Html.DisplayNameFor(model => model.Number)
         </th>
         <th>
-            Course Name
+            @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            Active
+            @Html.DisplayNameFor(model => model.Active)
         </th>
     </tr>
     <tr>
@@ -34,6 +41,7 @@
 
 @using (Html.BeginForm()) {
     <p>
+        @* Submit button *@
         <input type="submit" value="Delete" /> |
         @Html.ActionLink("Back to List", "Index")
     </p>
