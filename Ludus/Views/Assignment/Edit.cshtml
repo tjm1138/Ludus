@@ -1,4 +1,8 @@
-﻿@model Ludus.Models.Assignment
+﻿@* Assignment Edit View
+Shawn Williams
+March 31, 2013*@
+
+@model Ludus.Models.Assignment
 
 @{
     ViewBag.Title = "Edit";
@@ -6,6 +10,7 @@
 
 <h2>Edit</h2>
 
+@* Create form to edit an assignment *@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
@@ -14,7 +19,8 @@
 
         @Html.HiddenFor(model => model.Id)
 
-<div class="editor-label">
+        @* Form contains labels, populated data, and validates required fields *@
+        <div class="editor-label">
             @Html.LabelFor(model => model.SectionId)
         </div>
         <div class="editor-field">
@@ -66,6 +72,7 @@
 
         <br />
         <p>
+            @* Submit button *@
             <input type="submit" value="Save" />
         </p>
     </fieldset>

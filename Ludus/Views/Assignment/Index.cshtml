@@ -1,4 +1,8 @@
-﻿@model IEnumerable<Ludus.Models.Assignment>
+﻿@* Assignment Index View
+Shawn Williams
+March 31, 2013*@
+
+@model IEnumerable<Ludus.Models.Assignment>
 
 @{
     ViewBag.Title = "Index";
@@ -7,8 +11,11 @@
 <h2>Assignments</h2>
 
 <p>
+    @* a link to create new assignments *@
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@* Contruct a table and headers for the table *@
 <table class="table table-bordered">
     <tr>
         <th>
@@ -34,7 +41,8 @@
         </th>
         <th></th>
     </tr>
-  
+
+@* Fills in table will all the assignments *@  
 @foreach (var assignment in Model) {
     <tr>
         <td>@assignment.SectionId</td>
@@ -45,7 +53,9 @@
         <td>@assignment.MaximumGrade</td>
         <td>@assignment.Active</td>
         <td>
+            @* a link to edit assignments *@
             @Html.ActionLink("Edit", "Edit", new { id=assignment.Id }) |
+            @* a link to delete assignments *@
             @Html.ActionLink("Delete", "Delete", new { id=assignment.Id })
         </td>
     </tr>

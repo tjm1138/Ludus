@@ -1,4 +1,8 @@
-﻿@model Ludus.Models.Assignment
+﻿@* Assignment Delete View
+Shawn Williams
+March 31, 2013*@
+
+@model Ludus.Models.Assignment
 
 @{
     ViewBag.Title = "Delete";
@@ -6,7 +10,10 @@
 
 <h2>Delete</h2>
 
+@* Confirmation message *@
 <h3>Are you sure you want to delete this?</h3>
+
+@* Create table to display assignments and corresponding headers *@
 <table class="table table-bordered">
     <tr>
         <th>
@@ -58,6 +65,7 @@
 
 @using (Html.BeginForm()) {
     <p>
+        @* Submit button *@
         <input type="submit" value="Delete" /> |
         @Html.ActionLink("Back to List", "Index")
     </p>
