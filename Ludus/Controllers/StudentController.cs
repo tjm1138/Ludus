@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+StudentController - Controls interactions between views in the Student folder and models.
+Shawn Williams
+March 31, 2013
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -12,22 +18,21 @@ using WebMatrix.WebData;
 
 namespace Ludus.Controllers
 {
+    // This attribute, coded in Ludus.Filters, initializes the Membership system for inquiries, such as WebSecurity.CurrentUserId
     [InitializeSimpleMembership]
     public class StudentController : Controller
     {
         private DataServices.StudentService ds = new DataServices.StudentService();
         private DataContext dc = new DataContext();
 
-        // GET: /Student/
+        // Retrieves a list of students from StudentService
         public ActionResult Index()
         {
             ViewBag.Label = "Students";
             return View(ds.DisplayStudents());
-            //return View();
         }
 
-        // GET: /Student/Create
-
+        // Displays the Create view
         public ActionResult Create()
         {
             // query users to a list
@@ -60,8 +65,7 @@ namespace Ludus.Controllers
 
         }
 
-        // POST: /Student/Create
-
+        // Displays the Post for Create view
         [HttpPost]
         public ActionResult Create(Student student)
         {
@@ -74,8 +78,7 @@ namespace Ludus.Controllers
             return View(student);
         }
 
-        // GET: /Student/Edit/5
-
+        // Displays the Edit view
         public ActionResult Edit(int id)
         {
             Student student = ds.Find(id);
@@ -116,8 +119,7 @@ namespace Ludus.Controllers
             return View(model);
         }
 
-        // POST: /Student/Edit/5
-
+        // Displays the Post for Edit view
         [HttpPost]
         public ActionResult Edit(Student student)
         {
@@ -129,8 +131,7 @@ namespace Ludus.Controllers
             return View(student);
         }
 
-        // GET: /Student/Delete/5
-
+        // Displays the Delete view
         public ActionResult Delete(int id = 0)
         {
             Student student = ds.Find(id);
@@ -141,8 +142,7 @@ namespace Ludus.Controllers
             return View(student);
         }
 
-        // POST: /Student/Delete/5
-
+        // Displays the Post for Delete view
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -150,6 +150,7 @@ namespace Ludus.Controllers
             return RedirectToAction("Index");
         }
 
+        // Handles dispose
         protected override void Dispose(bool disposing)
         {
             ds.Dispose();

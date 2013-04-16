@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+FacultyController - Controls interactions between views in the Faculty folder and models.
+Shawn Williams
+March 31, 2013
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -12,13 +18,14 @@ using WebMatrix.WebData;
 
 namespace Ludus.Controllers
 {
+    // This attribute, coded in Ludus.Filters, initializes the Membership system for inquiries, such as WebSecurity.CurrentUserId
     [InitializeSimpleMembership]
     public class FacultyController : Controller
     {
         private DataServices.FacultyService ds = new DataServices.FacultyService();
         private DataContext dc = new DataContext();
 
-        // GET: /Faculty/
+        // Retrieves a list of faculty members from FacultyService
         public ActionResult Index()
         {
             ViewBag.Label = "Facultys";
@@ -26,8 +33,7 @@ namespace Ludus.Controllers
             //return View();
         }
 
-        // GET: /Faculty/Create
-
+        // Displays the Create view
         public ActionResult Create()
         {
             // query users to a list
@@ -60,8 +66,7 @@ namespace Ludus.Controllers
 
         }
 
-        // POST: /Faculty/Create
-
+        // Displays the Post for Create view
         [HttpPost]
         public ActionResult Create(Faculty faculty)
         {
@@ -74,8 +79,7 @@ namespace Ludus.Controllers
             return View(faculty);
         }
 
-        // GET: /Faculty/Edit/5
-
+        // Displays the Edit view
         public ActionResult Edit(int id = 0)
         {
             Faculty Faculty = ds.Find(id);
@@ -116,8 +120,7 @@ namespace Ludus.Controllers
             return View(model);
         }
 
-        // POST: /Faculty/Edit/5
-
+        // Displays the Post for Edit view
         [HttpPost]
         public ActionResult Edit(Faculty faculty)
         {
@@ -129,8 +132,7 @@ namespace Ludus.Controllers
             return View(faculty);
         }
 
-        // GET: /Faculty/Delete/5
-
+        // Displays the Delete view
         public ActionResult Delete(int id = 0)
         {
             Faculty Faculty = ds.Find(id);
@@ -141,8 +143,7 @@ namespace Ludus.Controllers
             return View(Faculty);
         }
 
-        // POST: /Faculty/Delete/5
-
+        // Displays the Post for Delete view
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -150,6 +151,7 @@ namespace Ludus.Controllers
             return RedirectToAction("Index");
         }
 
+        // Handles dispose
         protected override void Dispose(bool disposing)
         {
             ds.Dispose();

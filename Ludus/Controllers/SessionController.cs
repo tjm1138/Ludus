@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+SessionController - Controls interactions between views in the Session folder and models.
+Shawn Williams
+March 31, 2013
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -12,29 +18,28 @@ using WebMatrix.WebData;
 
 namespace Ludus.Controllers
 {
+    // This attribute, coded in Ludus.Filters, initializes the Membership system for inquiries, such as WebSecurity.CurrentUserId
     [InitializeSimpleMembership]
     public class SessionController : Controller
     {
         private DataServices.SessionService ds = new DataServices.SessionService();
         private DataContext dc = new DataContext();
-       
-        // GET: /Session/
+
+        // Retrieves a list of sessions from SessionService
         public ActionResult Index()
         {
             ViewBag.Label = "Sessions";
             return View(ds.DisplaySessions());
         }
-        
-        // GET: /Session/Create
 
+        // Displays the Create view
         public ActionResult Create()
         {
             return View();
         }
 
-   
-        // POST: /Session/Create
 
+        // Displays the Post for Create view
         [HttpPost]
         public ActionResult Create(Session session)
         {
@@ -47,8 +52,7 @@ namespace Ludus.Controllers
             return View(session);
         }
 
-        // GET: /Session/Edit/5
-
+        // Displays the Edit view
         public ActionResult Edit(int id = 0)
         {
             Session session = ds.Find(id);
@@ -59,8 +63,7 @@ namespace Ludus.Controllers
             return View(session);
         }
 
-        // POST: /Session/Edit/5
-
+        // Displays the Post for Edit view
         [HttpPost]
         public ActionResult Edit(Session session)
         {
@@ -72,8 +75,7 @@ namespace Ludus.Controllers
             return View(session);
         }
 
-        // GET: /Session/Delete/5
-
+        // Displays the Delete view
         public ActionResult Delete(int id = 0)
         {
             Session session = ds.Find(id);
@@ -84,8 +86,7 @@ namespace Ludus.Controllers
             return View(session);
         }
 
-        // POST: /Session/Delete/5
-
+        // Displays the Post for Delete view
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -93,6 +94,7 @@ namespace Ludus.Controllers
             return RedirectToAction("Index");
         }
 
+        // Handles dispose method
         protected override void Dispose(bool disposing)
         {
             ds.Dispose();

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+CourseController - Controls interactions between views in the Course folder and models.
+Shawn Williams
+March 31, 2013
+*/
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -12,80 +17,75 @@ using WebMatrix.WebData;
 
 namespace Ludus.Controllers
 {
+    // This attribute, coded in Ludus.Filters, initializes the Membership system for inquiries, such as WebSecurity.CurrentUserId
     [InitializeSimpleMembership]
     public class CourseController : Controller
     {
         private DataServices.CourseService ds = new DataServices.CourseService();
         private DataContext dc = new DataContext();
 
-        // GET: /Course/
+        // Retrieves a list of courses from CourseService
         public ActionResult Index()
         {
             ViewBag.Label = "Courses";
             return View(ds.DisplayCourses());
         }
 
-        // GET: /Course/Create
-
+        // Displays the Create view
         public ActionResult Create()
         {
             return View();
         }
 
 
-        // POST: /Course/Create
-
+        // Displays the Post for Create view
         [HttpPost]
-        public ActionResult Create(Course Course)
+        public ActionResult Create(Course course)
         {
             if (ModelState.IsValid)
             {
-                ds.Create(Course);
+                ds.Create(course);
                 return RedirectToAction("Index");
             }
 
-            return View(Course);
+            return View(course);
         }
 
-        // GET: /Course/Edit/5
-
+        // Displays the Edit view
         public ActionResult Edit(int id = 0)
         {
-            Course Course = ds.Find(id);
-            if (Course == null)
+            Course course = ds.Find(id);
+            if (course == null)
             {
                 return HttpNotFound();
             }
-            return View(Course);
+            return View(course);
         }
 
-        // POST: /Course/Edit/5
-
+        // Displays the Post for Edit view
         [HttpPost]
-        public ActionResult Edit(Course Course)
+        public ActionResult Edit(Course course)
         {
             if (ModelState.IsValid)
             {
-                ds.Update(Course);
+                ds.Update(course);
                 return RedirectToAction("Index");
             }
-            return View(Course);
+            return View(course);
         }
 
-        // GET: /Course/Delete/5
-
+        // Displays the Delete view
         public ActionResult Delete(int id = 0)
         {
-            Course Course = ds.Find(id);
-            if (Course == null)
+            Course course = ds.Find(id);
+            if (course == null)
             {
                 return HttpNotFound();
             }
-            return View(Course);
+            return View(course);
         }
 
-        // POST: /Course/Delete/5
-
+        // Displays the Post for Delete view
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -93,6 +93,7 @@ namespace Ludus.Controllers
             return RedirectToAction("Index");
         }
 
+        // Handles dispose
         protected override void Dispose(bool disposing)
         {
             ds.Dispose();

@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+SectionController - Controls interactions between views in the Section folder and models.
+Shawn Williams
+March 31, 2013
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -12,21 +18,21 @@ using WebMatrix.WebData;
 
 namespace Ludus.Controllers
 {
+    // This attribute, coded in Ludus.Filters, initializes the Membership system for inquiries, such as WebSecurity.CurrentUserId
     [InitializeSimpleMembership]
     public class SectionController : Controller
     {
         private DataServices.SectionService ds = new DataServices.SectionService();
         private DataContext dc = new DataContext();
 
-        // GET: /Section/
+        // Retrieves a list of sections from SectionService
         public ActionResult Index()
         {
             ViewBag.Label = "Sections";
             return View(ds.DisplaySections());
         }
 
-        // GET: /Section/Create
-
+        // Displays the Create view
         public ActionResult Create()
         {
             // query users to a list
@@ -59,8 +65,7 @@ namespace Ludus.Controllers
 
         }
 
-        // POST: /Section/Create
-
+        // Displays the Post for Create view
         [HttpPost]
         public ActionResult Create(Section section)
         {
@@ -73,8 +78,7 @@ namespace Ludus.Controllers
             return View(section);
         }
 
-        // GET: /Section/Edit/5
-
+        // Displays the Edit view
         public ActionResult Edit(int id = 0)
         {
             Section Section = ds.Find(id);
@@ -115,8 +119,7 @@ namespace Ludus.Controllers
             return View(model);
         }
 
-        // POST: /Section/Edit/5
-
+        // Displays the Post for Edit view
         [HttpPost]
         public ActionResult Edit(Section section)
         {
@@ -128,8 +131,7 @@ namespace Ludus.Controllers
             return View(section);
         }
 
-        // GET: /Section/Delete/5
-
+        // Displays the Delete view
         public ActionResult Delete(int id = 0)
         {
             Section section = ds.Find(id);
@@ -140,8 +142,7 @@ namespace Ludus.Controllers
             return View(section);
         }
 
-        // POST: /Section/Delete/5
-
+        // Displays the Post for Delete view
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -149,6 +150,7 @@ namespace Ludus.Controllers
             return RedirectToAction("Index");
         }
 
+        // Handles dispose
         protected override void Dispose(bool disposing)
         {
             ds.Dispose();

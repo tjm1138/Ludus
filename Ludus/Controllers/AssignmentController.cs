@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+AssignmentController - Controls interactions between views in the Assignment folder and models.
+Shawn Williams
+March 31, 2013
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -12,13 +18,14 @@ using WebMatrix.WebData;
 
 namespace Ludus.Controllers
 {
+    // This attribute, coded in Ludus.Filters, initializes the Membership system for inquiries, such as WebSecurity.CurrentUserId
     [InitializeSimpleMembership]
     public class AssignmentController : Controller
     {
         private DataServices.AssignmentService ds = new DataServices.AssignmentService();
         private DataContext dc = new DataContext();
 
-        // GET: /Assignment/
+        // Retrieves a list of assignments from AssignmentService
         public ActionResult Index()
         {
             ViewBag.Label = "Assignments";
@@ -26,14 +33,14 @@ namespace Ludus.Controllers
             //return View();
         }
 
+        // Displays the Create view
         public ActionResult Create()
         {
             return View();
         }
 
 
-        // POST: /Assignment/Create
-
+        // Displays the Post for Create view
         [HttpPost]
         public ActionResult Create(Assignment assignment)
         {
@@ -46,8 +53,7 @@ namespace Ludus.Controllers
             return View(assignment);
         }
 
-        // GET: /Assignment/Edit/
-
+        // Displays the Edit view
         public ActionResult Edit(int id = 0)
         {
             Assignment assignment = ds.Find(id);
@@ -58,8 +64,7 @@ namespace Ludus.Controllers
             return View(assignment);
         }
 
-        // POST: /Assignment/Edit/
-
+        // Displays the Post for Edit view
         [HttpPost]
         public ActionResult Edit(Assignment assignment)
         {
@@ -71,8 +76,7 @@ namespace Ludus.Controllers
             return View(assignment);
         }
 
-        // GET: /Assignment/Delete/
-
+        // Displays the Delete view
         public ActionResult Delete(int id = 0)
         {
             Assignment assignment = ds.Find(id);
@@ -83,8 +87,7 @@ namespace Ludus.Controllers
             return View(assignment);
         }
 
-        // POST: /Assignment/Delete/
-
+        // Displays the Post for Delete view
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -92,6 +95,7 @@ namespace Ludus.Controllers
             return RedirectToAction("Index");
         }
 
+        // Handles dispose method
         protected override void Dispose(bool disposing)
         {
             ds.Dispose();
