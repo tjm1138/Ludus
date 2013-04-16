@@ -15,8 +15,10 @@ namespace Ludus.DataServices
     using System.Web.Security;
     using WebMatrix.WebData;
     public class AssignmentService : IDisposable
-    {       
+    {
+        // Get methods return collections of objects, find methods return single objects.
         private Ludus.Models.DataContext dc = new Ludus.Models.DataContext();
+        // Method for displaying a list of Assignments based on userId
         public ICollection<Assignment> Get(int userId)
         {
             var sectionIds = (from e in new EnrollmentService().Get(userId)
@@ -35,7 +37,7 @@ namespace Ludus.DataServices
             return returnValue;
         }
 
-
+        // Method for displaying a list of Assignments
         public ICollection<Assignment> DisplayAssignments()
         {
             ICollection<Assignment> returnValue;
@@ -44,10 +46,13 @@ namespace Ludus.DataServices
             return returnValue;
         }
 
+        // Method to find assignments
         public Assignment Find(int id)
         {
             return dc.Assignments.Find(id);
         }
+        
+        // Method for removing assignments
         public void Remove(int id)
         {
             Assignment assignment = Find(id);
@@ -55,12 +60,14 @@ namespace Ludus.DataServices
             dc.SaveChanges();
         }
 
+        // Method for creating assignments
         public void Create(Assignment assignment)
         {
             dc.Assignments.Add(assignment);
             dc.SaveChanges();
         }
 
+        // Method for updating assignments
         public void Update(Assignment assignment)
         {
 
@@ -68,6 +75,7 @@ namespace Ludus.DataServices
             dc.SaveChanges();
         }
 
+        // Calls dispose
         public void Dispose()
         {
    //         dc.Dispose();
