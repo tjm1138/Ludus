@@ -1,4 +1,8 @@
-﻿@model IEnumerable<Ludus.Models.Session>
+﻿@* Session Index View
+Shawn Williams
+March 31, 2013*@
+
+@model IEnumerable<Ludus.Models.Session>
 
 @{
     ViewBag.Title = "Index";
@@ -7,8 +11,11 @@
 <h2>Sesssions</h2>
 
 <p>
+    @* a link to create new sessions *@
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@* Contruct a table and headers for the table *@
 <table class="table table-bordered">
     <tr>
         <th>
@@ -26,6 +33,7 @@
         <th></th>
     </tr>
 
+@* Fills in table will all the sessions *@
 @foreach (var session in Model) {
     <tr>
         <td>
@@ -41,7 +49,9 @@
             @Html.DisplayFor(modelItem => session.Active)
         </td>
         <td>
+            @* a link to edit sessions *@
             @Html.ActionLink("Edit", "Edit", new { id=session.Id }) |
+            @* a link to delete sessions *@
             @Html.ActionLink("Delete", "Delete", new { id=session.Id })
         </td>
     </tr>
