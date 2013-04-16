@@ -1,4 +1,8 @@
-﻿@model Ludus.Models.Student
+﻿@* Student Create View
+Shawn Williams
+March 31, 2013*@
+
+@model Ludus.Models.Student
 
 @{
     ViewBag.Title = "Create";
@@ -6,12 +10,14 @@
 
 <h2>Create</h2>
 
+@* Create form to create a student *@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>Student</legend>
 
+        @* Form contains labels, populated data, and validates required fields *@
         <div class="editor-label">
             @Html.LabelFor(model => model.UserProfile.UserName)
         </div>
@@ -30,6 +36,7 @@
 
         <br />
         <p>
+            @* Submit button *@
             <input type="submit" value="Create" />
         </p>
     </fieldset>

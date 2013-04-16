@@ -1,4 +1,7 @@
-﻿@model IEnumerable<Ludus.Models.Student>
+﻿@* Student Index View
+Shawn Williams
+March 31, 2013*@
+@model IEnumerable<Ludus.Models.Student>
 
 @{
     ViewBag.Title = "Index";
@@ -7,8 +10,11 @@
 <h2>Students</h2>
 
 <p>
+    @* a link to create new students *@
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@* Contruct a table and headers for the table *@
 <table class="table table-bordered">
     <tr>
         <th>
@@ -25,7 +31,8 @@
         </th>
         <th></th>
     </tr>
-  
+
+@* Fills in table will all the students *@  
 @foreach (var student in Model) {
     <tr>
         <td>@student.UserProfile.UserName</td>
@@ -33,7 +40,9 @@
         <td>@student.UserProfile.LastName</td>
         <td>@student.Session.Name</td>
         <td>
+            @* a link to edit students *@
             @Html.ActionLink("Edit", "Edit", new { id=student.Id }) |
+            @* a link to delete students *@
             @Html.ActionLink("Delete", "Delete", new { id=student.Id })
         </td>
     </tr>
