@@ -1,4 +1,8 @@
-﻿@model Ludus.Models.Section
+﻿@* Section Edit View
+Shawn Williams
+March 31, 2013*@
+
+@model Ludus.Models.Section
 
 @{
     ViewBag.Title = "Edit";
@@ -6,6 +10,7 @@
 
 <h2>Edit</h2>
 
+@* Create form to edit a section *@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
@@ -14,6 +19,7 @@
 
         @Html.HiddenFor(model => model.Id)
 
+        @* Form contains labels, populated data, and validates required fields *@
        <div class="editor-label">
             @Html.LabelFor(model => model.Session.Name)
         </div>
@@ -49,6 +55,7 @@
         </div>
         <br />
         <p>
+            @* Submit button *@
             <input type="submit" class="btn btn-success" value="Save" />
         </p>
     </fieldset>

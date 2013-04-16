@@ -1,4 +1,8 @@
-﻿@model IEnumerable<Ludus.Models.Section>
+﻿@* Section Index View
+Shawn Williams
+March 31, 2013*@
+
+@model IEnumerable<Ludus.Models.Section>
 
 @{
     ViewBag.Title = "Index";
@@ -7,8 +11,11 @@
 <h2>Sections</h2>
 
 <p>
+    @* a link to create new sections *@
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@* Contruct a table and headers for the table *@
 <table class="table table-bordered">
     <tr>
         <th>
@@ -29,6 +36,7 @@
         <th></th>
     </tr>
   
+@* Fills in table will all the sections *@
 @foreach (var section in Model) {
     <tr>
         <td>@Html.DisplayFor(modelItem => section.Session.Name)</td>
@@ -37,7 +45,9 @@
         <td>@Html.DisplayFor(modelItem => section.Limit)</td>
         <td>@Html.DisplayFor(modelItem => section.Description)</td>
         <td>
+            @* a link to edit sections *@
             @Html.ActionLink("Edit", "Edit", new { id=section.Id }) |
+            @* a link to delete sections *@
             @Html.ActionLink("Delete", "Delete", new { id=section.Id })
         </td>
     </tr>
