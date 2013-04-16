@@ -1,4 +1,8 @@
-﻿@model IEnumerable<Ludus.Models.Faculty>
+﻿@* Faculty Index View
+Shawn Williams
+March 31, 2013*@
+
+@model IEnumerable<Ludus.Models.Faculty>
 
 @{
     ViewBag.Title = "Index";
@@ -7,8 +11,11 @@
 <h2>Faculty</h2>
 
 <p>
+    @* a link to create new faculty members *@
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@* Contruct a table and headers for the table *@
 <table class="table table-bordered">
     <tr>
         <th>
@@ -25,7 +32,8 @@
         </th>
         <th></th>
     </tr>
-  
+
+@* Fills in table will all the faculty members *@  
 @foreach (var faculty in Model) {
     <tr>
         <td>@faculty.UserProfile.UserName</td>
@@ -33,7 +41,9 @@
         <td>@faculty.UserProfile.LastName</td>
         <td>@faculty.Session.Name</td>
         <td>
+            @* a link to edit faculty members *@
             @Html.ActionLink("Edit", "Edit", new { id=faculty.Id }) |
+            @* a link to delete faculty members *@
             @Html.ActionLink("Delete", "Delete", new { id=faculty.Id })
         </td>
     </tr>
