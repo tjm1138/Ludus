@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
+using System.Linq;
 
 namespace Ludus.Models
 {
@@ -39,7 +40,29 @@ namespace Ludus.Models
         public string Biography { get; set; }
 
     }
+    public class UserPermission
+    {
+        public bool isStudent { get; set; }
+        public bool isFaculty { get; set; }
+        public bool isAdmin { get; set; }
+        public UserPermission()
+        {
+            isStudent = isFaculty = isAdmin = false;
+        }
+        public void Fill(int userId)
+        {
+            DataContext dc = new DataContext();
+            isStudent = (from s in dc.Students
+                                join ses in dc.Sessions on s.SessionId equals ses.Id
+                           where s.UserId.Equals (userId)
+                           select s).Count() > 0;
+            isFaculty = (from s in dc.Faculties
+                         join ses in dc.Sessions on s.SessionId equals ses.Id
+                         where s.UserId.Equals(userId)
+                         select s).Count() > 0;
 
+        }
+    }
     public class RegisterExternalLoginModel
     {
         [Required]

@@ -40,12 +40,14 @@ namespace Ludus.DataServices
         {
             return dc.PersonalItems.Find(id);
         }
+        // Remove an item from teh database
         public void Remove(int id)
         {
             PersonalItem item = Find(id);
             dc.PersonalItems.Remove(item);
             dc.SaveChanges();
         }
+        // Add an item and save changes
         public int Create(PersonalItem item)
         {
             dc.PersonalItems.Add(item);

@@ -25,7 +25,6 @@ namespace Ludus.DataServices
                            select s).ToList();
             return returnValue;
         }
-        
         // Method to find faculty members
         public Faculty Find(int id)
         {

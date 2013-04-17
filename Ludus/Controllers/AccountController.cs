@@ -39,8 +39,12 @@ namespace Ludus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
+            Session["Permissions"] = new Ludus.Models.UserPermission(); 
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
+                DataContext dc = new DataContext();
+                int userId = (from u in dc.UserProfiles where u.UserName == model.UserName select u.UserId).FirstOrDefault();
+                ((Ludus.Models.UserPermission)Session["Permissions"]).Fill (userId);
                 return RedirectToLocal(returnUrl);
             }
             // If we got this far, something failed, redisplay form
@@ -77,6 +81,7 @@ namespace Ludus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
+            Session["Permissions"] = new Ludus.Models.UserPermission();
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
@@ -228,7 +233,7 @@ namespace Ludus.Controllers
             }
 
             if (OAuthWebSecurity.Login(result.Provider, result.ProviderUserId, createPersistentCookie: false))
-            {
+          {
                 return RedirectToLocal(returnUrl);
             }
 

@@ -45,7 +45,9 @@
           <div class="nav-collapse">
                     <ul class="nav " role="navigation">
                         @if (Request.IsAuthenticated) {
-                    <li class="dropdown">
+                            if (((Ludus.Models.UserPermission)Session["Permissions"]).isStudent)
+                            {
+                     <li class="dropdown">
                       <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Student <b class="caret"></b></a>
                       <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
                         <li>@Html.ActionLink("Personal Items", "Index", "PersonalItem", routeValues: null, htmlAttributes: new { id = "personalItemsLink" })</li>
@@ -54,6 +56,9 @@
                         <li>@Html.ActionLink("My Profile", "Index", "Profile", routeValues: null, htmlAttributes: new { id = "profileLink" })</li>
                       </ul>
                     </li>
+                            }
+                            if (((Ludus.Models.UserPermission)Session["Permissions"]).isFaculty)
+                            {
                     <li class="dropdown">
                       <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Faculty <b class="caret"></b></a>
                       <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
@@ -62,6 +67,7 @@
                         <li>@Html.ActionLink("View Assignments", "Index", "Assignment", routeValues: null, htmlAttributes: new { id = "assignmentsLink" })</li>
                       </ul>
                     </li>
+                        }
                     <li class="dropdown">
                       <a href="#" id="drop4" role="button" class="dropdown-toggle" data-toggle="dropdown">Administrator <b class="caret"></b></a>
                       <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">

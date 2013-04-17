@@ -25,7 +25,7 @@ namespace Ludus.DataServices
                            select s).ToList();
             return returnValue;
         }
-        
+
         // Method to find students
         public Student Find(int id)
         {

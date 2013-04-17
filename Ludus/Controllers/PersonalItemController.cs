@@ -23,6 +23,7 @@ namespace Ludus.Controllers
         private DataServices.PersonalItemService ds = new DataServices.PersonalItemService();
         //
         // GET: /PersonalIItem/
+        // Shows all of Personal Items for the current user. 
         public ActionResult Index()
         {
             ViewBag.Label = "View Personal Items";
@@ -31,7 +32,7 @@ namespace Ludus.Controllers
 
         //
         // GET: /PersonalIItem/Details/5
-
+        // Show the details of a single Personal Item
         public ActionResult Details(int id = 0, bool goHome = false)
         {
             PersonalItem personalitem = ds.Find(id);
@@ -45,7 +46,7 @@ namespace Ludus.Controllers
 
         //
         // GET: /PersonalIItem/Create
-
+        // Provides a blank for adding one.
         public ActionResult Create()
         {
             return View();
@@ -53,14 +54,16 @@ namespace Ludus.Controllers
 
         //
         // POST: /PersonalIItem/Create
-
+        // After editing is done on a new one, adds it to the database
         [HttpPost]
         public ActionResult Create(PersonalItem personalitem)
         {
             if (ModelState.IsValid)
             {
+                // This is for the current user
                 personalitem.UserId = WebSecurity.CurrentUserId;//User.Identity
                 ds.Create(personalitem);
+                // Send us back to the list view
                 return RedirectToAction("Index");
             }
 
@@ -69,7 +72,8 @@ namespace Ludus.Controllers
 
         //
         // GET: /PersonalIItem/Edit/5
-
+        // We're editing, so we need to look up the current item and show the edit screen
+        // goHome is used when we want to go back to the home page
         public ActionResult Edit(int id = 0, bool goHome = false)
         {
             PersonalItem personalitem = ds.Find(id);
@@ -83,7 +87,7 @@ namespace Ludus.Controllers
 
         //
         // POST: /PersonalIItem/Edit/5
-
+        // Now that editing is complete, save the changes.
         [HttpPost]
         public ActionResult Edit(PersonalItem personalitem)
         {
@@ -97,7 +101,7 @@ namespace Ludus.Controllers
 
         //
         // GET: /PersonalIItem/Delete/5
-
+        // Show the form for deletion
         public ActionResult Delete(int id = 0)
         {
             PersonalItem personalitem = ds.Find(id);
@@ -110,14 +114,14 @@ namespace Ludus.Controllers
 
         //
         // POST: /PersonalIItem/Delete/5
-
+        // Deletion Confirmed, do it and go back to the index.
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
             ds.Remove(id);
             return RedirectToAction("Index");
         }
-
+        // from IDisposable, to release memory from the Service.
         protected override void Dispose(bool disposing)
         {
             ds.Dispose();

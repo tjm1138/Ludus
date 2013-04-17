@@ -36,14 +36,7 @@ namespace Ludus.Controllers
             DataServices.CalendarService cs = new DataServices.CalendarService();
             return View(cs.Find(WebSecurity.CurrentUserId, new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)));
         }
-
-        //[HttpPost, ActionName("Month")]
-        //public ActionResult Index(Calendar calendar)
-        //{
-        //    ViewBag.View = "Month";
-        //    return RedirectToAction("Index");
-        //}
-        [HttpPost]
+       [HttpPost]
         public ActionResult Index(Calendar calendar)
         {
             if ((string) Session["IndexView"] == "Month")
