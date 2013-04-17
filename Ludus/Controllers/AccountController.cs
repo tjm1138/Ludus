@@ -1,18 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Transactions;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Security;
-using DotNetOpenAuth.AspNet;
-using Microsoft.Web.WebPages.OAuth;
-using WebMatrix.WebData;
-using Ludus.Filters;
-using Ludus.Models;
-
+﻿/*
+ * Account Controller - Included with Visual Studio Project
+ * Microsoft
+ * May 31, 2013
+*/
 namespace Ludus.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Transactions;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Security;
+    using DotNetOpenAuth.AspNet;
+    using Microsoft.Web.WebPages.OAuth;
+    using WebMatrix.WebData;
+    using Ludus.Filters;
+    using Ludus.Models;
     [Authorize]
     [InitializeSimpleMembership]
     public class AccountController : Controller

@@ -1,17 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Security;
-using Ludus.Filters;
-using Ludus.Models;
-using WebMatrix.WebData;
+﻿/*
+ * Personal Item Controller - Controls interactions between views in the Personal Item folder and models 
+ * Thomas Moseley
+ * April 17, 2013
+*/
 
 namespace Ludus.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Security;
+    using Ludus.Filters;
+    using Ludus.Models;
+    using WebMatrix.WebData;
     [InitializeSimpleMembership]
     public class PersonalItemController : Controller
     {

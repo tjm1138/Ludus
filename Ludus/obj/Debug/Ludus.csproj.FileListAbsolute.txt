@@ -211,3 +211,4 @@ C:\Users\Kassy\Desktop\ludus sunday3\Ludus\Ludus\bin\Mono.Math.xml
 C:\Users\Kassy\Desktop\ludus sunday3\Ludus\Ludus\obj\Debug\Ludus.csprojResolveAssemblyReference.cache
 C:\Users\Kassy\Desktop\ludus sunday3\Ludus\Ludus\obj\Debug\Ludus.dll
 C:\Users\Kassy\Desktop\ludus sunday3\Ludus\Ludus\obj\Debug\Ludus.pdb
+C:\Users\Thomas\Documents\GitHub\Ludus\Ludus\bin\Ludus.dll.CodeAnalysisLog.xml

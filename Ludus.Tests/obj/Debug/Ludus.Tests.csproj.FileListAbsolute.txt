@@ -165,3 +165,5 @@ C:\Users\Thomas\Documents\GitHub\Ludus\Ludus.Tests\bin\Debug\Mono.Math.xml
 C:\Users\Thomas\Documents\GitHub\Ludus\Ludus.Tests\obj\Debug\Ludus.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Thomas\Documents\GitHub\Ludus\Ludus.Tests\obj\Debug\Ludus.Tests.dll
 C:\Users\Thomas\Documents\GitHub\Ludus\Ludus.Tests\obj\Debug\Ludus.Tests.pdb
+C:\Users\Thomas\Documents\GitHub\Ludus\Ludus.Tests\bin\Debug\Ludus.Tests.dll.CodeAnalysisLog.xml
+C:\Users\Thomas\Documents\GitHub\Ludus\Ludus.Tests\bin\Debug\Ludus.Tests.dll.lastcodeanalysissucceeded
