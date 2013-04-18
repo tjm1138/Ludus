@@ -192,6 +192,7 @@
     <Compile Include="DataServices\EnrollmentService.cs" />
     <Compile Include="DataServices\FacultyService.cs" />
     <Compile Include="Controllers\SectionController.cs" />
+    <Compile Include="DataServices\ProfileService.cs" />
     <Compile Include="DataServices\SessionService.cs" />
     <Compile Include="DataServices\SectionService.cs" />
     <Compile Include="DataServices\StudentService.cs" />
@@ -213,6 +214,7 @@
     <Compile Include="Models\PersonalItem.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Quiz.cs" />
     <Compile Include="Models\RolePermissionLink.cs" />
     <Compile Include="Models\Section.cs" />

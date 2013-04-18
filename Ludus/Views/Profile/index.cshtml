@@ -1,9 +1,9 @@
-﻿@{
+﻿@model Ludus.Models.Profile
+@{
     ViewBag.Title = "Profile";
-    string biography = @Model.Biography;
 }
 
-<h1 class="page-header">@Model.DisplayName</h1>
+<h1 class="page-header">@Model.User.DisplayName</h1>
 
 <div>
 
@@ -12,18 +12,18 @@
         <!-- Row with user's photo and biography -->
         <div class="row">
             <div class="span1 offset2">
-                <img id="profile_photo" src="@ViewBag.gravatar" class="avatar" alt=""/>
+                <img id="profile_photo" src="@Model.Gravatar" class="avatar" alt=""/>
             </div>
 
             <div class="span7">
                 <div id="biography">
-                    <p id="biography_text">@biography</p>
+                    <p id="biography_text">@Model.User.Biography</p>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="span1 offset7">@Html.ActionLink("Edit", "Edit", new { id = Model.UserId }, new { @class="btn btn-success", @style="color:white"})</div>
+            <div class="span1 offset7">@Html.ActionLink("Edit", "Edit", new { id = Model.User.UserId }, new { @class="btn btn-success", @style="color:white"})</div>
         </div>
 
         <h4 class="page-header">
@@ -51,7 +51,7 @@
         </h4>
 
         <div id="course-titles" class="row">
-            <div class="span3 offset2"
+            <div class="span3 offset2">
                 <span>Course Number</span>
             </div>
 
@@ -60,7 +60,19 @@
             </div>
 
         </div>
+        @foreach (var enrollment in Model.Enrollments)
+        {
+        <div class="row">
+            <div class="span3 offset2">
+                <span>@enrollment.Section.Course.Number</span>
+            </div>
 
+            <div class="span 5">
+                <span>@enrollment.Section.Course.Name</span>
+            </div>
+
+        </div>
+        }
         <div class="course-name row" style="min-height:100px;">
             
         </div>

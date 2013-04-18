@@ -11,20 +11,20 @@ namespace Ludus.Controllers
     [InitializeSimpleMembership]
     public class ProfileController : Controller
     {
-        private DataServices.UserProfileService ds = new DataServices.UserProfileService();
+        private DataServices.UserProfileService ups = new DataServices.UserProfileService();
+        private DataServices.ProfileService ps = new DataServices.ProfileService();
 
         // GET: /Profile/
         public ActionResult Index()
         {
-            UserProfile user = ds.Find(WebSecurity.CurrentUserId);
-            ViewBag.gravatar = ds.Gravatar(user.EmailAddress);
+            Profile user = ps.Find(WebSecurity.CurrentUserId);
             return View(user);
         }
 
         //Edit an existing profile page submission
         public ActionResult Edit(int id)
         {
-            UserProfile profile = ds.Find(id);
+            UserProfile profile = ups.Find(id);
             if (profile == null)
             {
                 return HttpNotFound();
@@ -38,7 +38,7 @@ namespace Ludus.Controllers
         {
             if (ModelState.IsValid)
             {
-                ds.Update(profile);
+                ups.Update(profile);
                 return RedirectToAction("index");
             }
             return View(profile);
