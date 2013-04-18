@@ -60,7 +60,7 @@ namespace Ludus.Models
                          join ses in dc.Sessions on s.SessionId equals ses.Id
                          where s.UserId.Equals(userId)
                          select s).Count() > 0;
-
+            
         }
     }
     public class RegisterExternalLoginModel
