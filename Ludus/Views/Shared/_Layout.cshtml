@@ -45,7 +45,7 @@
           <div class="nav-collapse">
                     <ul class="nav " role="navigation">
                         @if (Request.IsAuthenticated) {
-                            if (((Ludus.Models.UserPermission)Session["Permissions"]).isStudent)
+                            if (Session["Permissions"] != null && ((Ludus.Models.UserPermission)Session["Permissions"]).isStudent)
                             {
                      <li class="dropdown">
                       <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Student <b class="caret"></b></a>
@@ -57,7 +57,7 @@
                       </ul>
                     </li>
                             }
-                            if (((Ludus.Models.UserPermission)Session["Permissions"]).isFaculty)
+                            if (Session["Permissions"] != null && ((Ludus.Models.UserPermission)Session["Permissions"]).isFaculty)
                             {
                     <li class="dropdown">
                       <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Faculty <b class="caret"></b></a>
@@ -83,7 +83,6 @@
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         <li class="divider"></li>
-                        <li><a tabindex="-1" href="http://ludus-support.cloudapp.net:8080/secure/Dashboard.jspa" target="_new">Jira</a></li>
                         <li><a tabindex="-1" href="~/Documents/Ludus SRS.docx">Ludus SRS</a></li>
                         <li><a tabindex="-1" href="~/Documents/Ludus SDD.docx">Ludus SDD</a></li>
                         <li><a tabindex="-1" href="https://github.com/tjm1138/Ludus/">Ludus Source Code on GitHub</a></li>
