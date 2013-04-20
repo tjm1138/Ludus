@@ -29,12 +29,18 @@ namespace Ludus.Controllers
         private DataServices.CalendarService cs = new DataServices.CalendarService();
         public ActionResult Index()
         {
+            DateTime displayMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             if (Session["IndexView"] == null)
                 Session["IndexView"] = "Month";
+            if (Session["displayMonth"] != null)
+                displayMonth = (DateTime) Session["displayMonth"];
+            else
+                Session["displayMonth"] = displayMonth;
+
             //ViewBag.View = "Month";
             // Retrieves the calendar entries for the current user, and feeds them to the view.
             DataServices.CalendarService cs = new DataServices.CalendarService();
-            return View(cs.Find(WebSecurity.CurrentUserId, new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)));
+            return View(cs.Find(WebSecurity.CurrentUserId, displayMonth));
         }
        [HttpPost]
         public ActionResult Index(Calendar calendar)
@@ -45,7 +51,17 @@ namespace Ludus.Controllers
                 Session["IndexView"] = "Month";
             return RedirectToAction("Index");
         }
-        public ActionResult Documents()
+       public ActionResult NextMonth()
+       {
+           Session["displayMonth"] = ((DateTime)Session["displayMonth"]).AddMonths(1);
+           return RedirectToAction("Index");
+       }
+       public ActionResult PreviousMonth()
+       {
+           Session["displayMonth"] = ((DateTime)Session["displayMonth"]).AddMonths(-1);
+           return RedirectToAction("Index");
+       }
+       public ActionResult Documents()
         {
             // Static Page, at the moment, so no data retrieval necessary.
             // TODO: Create Documents management page.
