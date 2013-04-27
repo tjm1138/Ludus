@@ -2,67 +2,12 @@
 @Html.ActionLink("Create New Personal Item", "Create", "PersonalItem", null, new { @class = "btn btn-info", @style = "color:white" })
 <div class="navbar">
     <div class="navbar-inner">
-        <a href="#" class="brand">@String.Format("{0:MMMM yyyy}", Model.DisplayMonth)</a>
-        <ul class="nav pull-right dropdown">
-            <li><a href="/plan?month=3&amp;year=2013">&lt; March</a></li>
-            <li><a href="/plan?month=5&amp;year=2013">May &gt;</a></li>
+        <ul class="nav dropdown">
+            <li>@Html.ActionLink(String.Format ("< {0:MMMM yyyy}", Model.DisplayMonth.AddMonths(-1)), "PreviousMonth")</li>
         </ul>
-        <form accept-charset="UTF-8" action="/plan" class="navbar-form pull-right" method="post">
-            <div style="margin: 0; padding: 0; display: inline">
-                <input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="OjEruRp24AEXsg3gvTRwNQkZjKUarQqDK1ywtw0ssQI=" />
-            </div>
-            <select class="input-medium" id="goto_date_1i" name="goto[date(1i)]">
-                <option @if (Model.DisplayMonth.Year == 2007)
-                        {<text>selected="selected" </text>} value="2007">2007</option>
-                <option @if (Model.DisplayMonth.Year == 2008)
-                        {<text>selected="selected" </text>} value="2008">2008</option>
-                <option @if (Model.DisplayMonth.Year == 2009)
-                        {<text>selected="selected" </text>} value="2009">2009</option>
-                <option @if (Model.DisplayMonth.Year == 2010)
-                        {<text>selected="selected" </text>} value="2010">2010</option>
-                <option @if (Model.DisplayMonth.Year == 2011)
-                        {<text>selected="selected" </text>} value="2011">2011</option>
-                <option @if (Model.DisplayMonth.Year == 2012)
-                        {<text>selected="selected" </text>} value="2012">2012</option>
-                <option @if (Model.DisplayMonth.Year == 2013)
-                        {<text>selected="selected" </text>} value="2013">2013</option>
-                <option @if (Model.DisplayMonth.Year == 2014)
-                        {<text>selected="selected" </text>} value="2014">2014</option>
-                <option @if (Model.DisplayMonth.Year == 2015)
-                        {<text>selected="selected" </text>} value="2015">2015</option>
-                <option @if (Model.DisplayMonth.Year == 2016)
-                        {<text>selected="selected" </text>} value="2016">2016</option>
-            </select>
-            <select class="input-medium" id="goto_date_2i" name="goto[date(2i)]">
-                <option @if (Model.DisplayMonth.Month == 1)
-                        {<text>selected="selected" </text>} value="1">January</option>
-                <option @if (Model.DisplayMonth.Month == 2)
-                        {<text>selected="selected" </text>} value="2">February</option>
-                <option @if (Model.DisplayMonth.Month == 3)
-                        {<text>selected="selected" </text>} value="3">March</option>
-                <option @if (Model.DisplayMonth.Month == 4)
-                        {<text>selected="selected" </text>} value="4">April</option>
-                <option @if (Model.DisplayMonth.Month == 5)
-                        {<text>selected="selected" </text>} value="5">May</option>
-                <option @if (Model.DisplayMonth.Month == 6)
-                        {<text>selected="selected" </text>} value="6">June</option>
-                <option @if (Model.DisplayMonth.Month == 7)
-                        {<text>selected="selected" </text>} value="7">July</option>
-                <option @if (Model.DisplayMonth.Month == 8)
-                        {<text>selected="selected" </text>} value="8">August</option>
-                <option @if (Model.DisplayMonth.Month == 9)
-                        {<text>selected="selected" </text>} value="9">September</option>
-                <option @if (Model.DisplayMonth.Month == 10)
-                        {<text>selected="selected" </text>} value="10">October</option>
-                <option @if (Model.DisplayMonth.Month == 11)
-                        {<text>selected="selected" </text>} value="11">November</option>
-                <option @if (Model.DisplayMonth.Month == 12)
-                        {<text>selected="selected" </text>} value="12">December</option>
-            </select>
-            <input id="goto_date_3i" name="goto[date(3i)]" type="hidden" value="1" />
-            <input class="btn" name="commit" type="submit" value="Go" />
-        </form>
-        <ul class="nav pull-right dropdown">
+        <span class="brand">@String.Format("{0:MMMM yyyy}", Model.DisplayMonth)</span>
+        <ul class="nav dropdown">
+           <li>@Html.ActionLink(String.Format ("{0:MMMM yyyy} >", Model.DisplayMonth.AddMonths(1)), "NextMonth")</li>
         </ul>
     </div>
 </div>
@@ -86,21 +31,23 @@
                 DateTime thisDay = first.AddDays(week * 7 + day);
                 <div class="calcel">
                     <div>
-                        <div class="pull-left"><a class="btn" >@thisDay.Day</a></div>
+                        @{string dayClass = thisDay == DateTime.Today ? "btn btn-inverse" : "btn";
+                          string buttonText = @thisDay.Day.ToString() + (thisDay == DateTime.Today ? " (Today)" : "");
+                          }
+                        <div class="pull-left"><a class="@dayClass" >@buttonText</a></div>
                         <div class="clearfix"></div>
                     </div>
                     @{
                         foreach (var item in (from i in Model.Items
                                     where i.Due >= thisDay && i.Due < thisDay.AddDays(1) select i))
                                     {
-                            string buttonType;
                             if (item is Ludus.Models.PersonalItem)
                             {
                                 @Html.ActionLink(@item.Description, "Details", "PersonalItem", new { id = item.Id, goHome = true }, new { @class = "btn btn-info event", style = "color:white" })
                             }
                             else
                             {
-                                @Html.ActionLink(@item.Description, "Details", "Assignment", new { id = item.Id, goHome = true }, new { @class = "btn btn-success event", style = "color:white" })
+                                @Html.ActionLink(@item.Description, "Edit", "Assignment", new { id = item.Id, goHome = true }, new { @class = "btn btn-success event", style = "color:white" })
                             }
                                     }
                                     }
@@ -113,8 +60,4 @@
           }
         }
     }
-    @*
-            <a class="btn btn-info event" href="/plan/events/65263/menu" data-remote="true" style="color: white;">Committee Meeting: 03:00 pm</a>
-            <a class="btn btn-warning event" href="/plan/events/65263/menu" data-remote="true" style="color: white;">COP 4510 - HW9</a>
-    *@
 </div>

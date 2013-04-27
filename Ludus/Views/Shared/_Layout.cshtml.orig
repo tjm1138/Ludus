@@ -83,10 +83,17 @@
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         <li class="divider"></li>
+<<<<<<< HEAD
+                        <li><a tabindex="-1" href="http://ludus-support.cloudapp.net:8080/secure/Dashboard.jspa" target="_new">Jira</a></li>
                         <li><a tabindex="-1" href="~/Documents/Ludus SRS.docx" target="_blank">Ludus SRS</a></li>
                         <li><a tabindex="-1" href="~/Documents/Ludus SDD.docx" target="_blank">Ludus SDD</a></li>
                         <li><a tabindex="-1" href="https://github.com/tjm1138/Ludus/" target="_blank">Ludus Source Code on GitHub</a></li>
                         <li><a tabindex="-1" href="https://www.youtube.com/watch?v=s0m3MmW0E-Y" target="_blank">Ludus Presentation</a></li>
+=======
+                        <li><a tabindex="-1" href="~/Documents/Ludus SRS.docx">Ludus SRS</a></li>
+                        <li><a tabindex="-1" href="~/Documents/Ludus SDD.docx">Ludus SDD</a></li>
+                        <li><a tabindex="-1" href="https://github.com/tjm1138/Ludus/">Ludus Source Code on GitHub</a></li>
+>>>>>>> origin/master
                       </ul>
                     </li>
                        @Html.Partial("_LoginPartial")

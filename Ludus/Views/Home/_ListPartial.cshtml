@@ -54,8 +54,8 @@ May 31, 2013
           }
           else
           {
-            @Html.ActionLink("Details", "Details", "Assignment", new { id=item.Id, goHome=true })<text> | </text>
-            @Html.ActionLink("Submit", "Submit", "Assignment", new { id=item.Id, goHome=true })
+            @Html.ActionLink("Details", "Edit", "Assignment", new { id=item.Id, goHome=true }, null)<text> | </text>
+            @Html.ActionLink("Submit", "Submit", "Assignment", new { id=item.Id, goHome=true }, null)
           }
       </div>
     </div>

@@ -38,7 +38,7 @@ namespace Ludus.Tests.DataServices
         public void GrvatarTest()
         {
             // Arrange
-            UserProfileService service = new UserProfileService();
+            ProfileService service = new ProfileService();
             // Act
             var returnedOutput = service.Gravatar("kassycoan@gmail.com");
             Assert.AreEqual("http://www.gravatar.com/avatar/32cfc1315fecbc04d689b8bcb03d3caf?d=http://ludus.azurewebsites.net/Images/defaultProfile.jpg", returnedOutput);

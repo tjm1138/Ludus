@@ -40,7 +40,7 @@ namespace Ludus.Controllers
         public ActionResult Login(LoginModel model, string returnUrl)
         {
             Session["Permissions"] = new Ludus.Models.UserPermission(); 
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, false))
             {
                 DataContext dc = new DataContext();
                 int userId = (from u in dc.UserProfiles where u.UserName == model.UserName select u.UserId).FirstOrDefault();
